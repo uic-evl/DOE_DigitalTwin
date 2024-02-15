@@ -13,7 +13,7 @@ Software:
 Hardware:
 * HMD
     * Oculus Quest 2
-* [iRobot Create3](https://iroboteducation.github.io/create3_docs/)
+* 2 [iRobot Create3s](https://iroboteducation.github.io/create3_docs/)
 * Intel NUC (Named Discovery)
 
 ## Getting Started
@@ -50,7 +50,11 @@ The iRobot Create3 is an educational robot that can be controlled using either t
     * From the directions above, you can use the robot's webserver page to connect it to a different wifi network
     * If the robot and computer are on the same network, you can find the robot's ip through your method of choice (`ipconfig`, or `arp -a`) and navigate to it. 
     * On the EVL-IoT network, the Create3's IP is `10.0.0.21`.
-    * On the GL.inet mini router, the Create3's IP is `192.168.8.240`.
+    * On the GL.inet mini router, the Create3's IP is `192.168.8.240` or `192.168.8.124`.
+ 
+### Network Notes
+
+Currently, the only reliable way to connect ROS2 and the iRobot Create3 is using an Ubuntu machine with a wifi connection to the GL.inet mini-router. If the computer and the robot are both on the GL.inet network, and `ros2 topic list` does not print any topics containing the `/robot_1` or `/robot_2` prefix, you max need to restart the robot's ROS2 application, which can be done through the page at the IP addresses above. 
 
 ## Next Steps
 
@@ -60,7 +64,8 @@ Generally speaking, our next steps are as follows:
     * Unity: Open Question
     * Unreal: Open Question
 * Troubleshoot Create3 ROS2 networking issue
-    * At present, we can't get the ROS2 running on Discovery's WSL to see the Create3's ROS2 topics. 
+    * At present, we can't get the ROS2 running on Discovery's WSL to see the Create3's ROS2 topics.
+       * This is important, as we will need to establish a connection across Linux and Windows.     
     * We have a GL.inet mini router that we are using to place Discovery and the Create3 on their own wifi network.
         * You will need the admin password and wifi access key to use the mini-router. 
     
