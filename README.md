@@ -51,6 +51,8 @@ The iRobot Create3 is an educational robot that can be controlled using either t
     * If the robot and computer are on the same network, you can find the robot's ip through your method of choice (`ipconfig`, or `arp -a`) and navigate to it. 
     * On the EVL-IoT network, the Create3's IP is `10.0.0.21`.
     * On the GL.inet mini router, the Create3's IP is `192.168.8.240` or `192.168.8.124`.
+
+iRobot provides some [sample nodes](https://github.com/iRobotEducation/create3_examples/tree/humble) for controlling the robot. Once you have confirmed that your ROS2 `ros2 topic list`  command shows the topics from the Create3, you should be able to run these nodes to control the robot. 
  
 ### Network Notes
 
