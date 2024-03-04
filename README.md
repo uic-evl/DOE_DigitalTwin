@@ -13,8 +13,9 @@ Software:
 Hardware:
 * HMD
     * Oculus Quest 2
-* 2 [iRobot Create3s](https://iroboteducation.github.io/create3_docs/)
-* Intel NUC (Named Discovery)
+* 2 [iRobot Create3](https://iroboteducation.github.io/create3_docs/) Roombas
+* Intel NUC with Windows (Named Discovery)
+* Intel NUC with Ubuntu
 
 ## Getting Started
 
@@ -63,7 +64,7 @@ Currently, the only reliable way to connect ROS2 and the iRobot Create3 is using
 Generally speaking, our next steps are as follows:
 * Investigate and compare VR platforms (OV, Unreal, Unity) and test their connection with ROS2
     * OV: Direct connection with ROS2 through Isaac Sim
-    * Unity: Open Question
+    * Unity: Connect to ROS2 with the TCP Connector Unity Package, and the ROS TCP Endpoint ROS2 Package. 
     * Unreal: Open Question
 * Troubleshoot Create3 ROS2 networking issue
     * At present, we can't get the ROS2 running on Discovery's WSL to see the Create3's ROS2 topics.
