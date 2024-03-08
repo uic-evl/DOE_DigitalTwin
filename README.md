@@ -33,7 +33,8 @@ Steps:
     * make sure you get the desktop installation AND the dev tools:
             `sudo apt install ros-humble-desktop`
             `sudo apt install ros-dev-tools`
-3. (Optional but recommended) Install [Xming X server](http://www.straightrunning.com/XmingNotes/) so that you can launch GUI applications from WSL. ROS2 has several handy GUI features, and the Create3 Robot makes use of these for some simulation tools. 
+3. To make using ROS2 a bit easier, you can run `echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc` so that the ROS2 environment is sourced automatically when your shell starts. 
+4. (Optional but recommended) Install [Xming X server](http://www.straightrunning.com/XmingNotes/) so that you can launch GUI applications from WSL. ROS2 has several handy GUI features, and the Create3 Robot makes use of these for some simulation tools. 
 
 Once you have ROS2, I recommend following their turtlesim tutorial, as it gives a good overview of ROS2 terms that will be relevant to this project. TLDR: ROS2 is a system where a bunch of distributed scripts called **nodes** share data by publishing/subscribing to **topics**. These scripts can be written in C++ or Python.
 
