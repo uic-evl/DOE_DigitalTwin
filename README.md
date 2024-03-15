@@ -60,6 +60,12 @@ iRobot provides some [sample nodes](https://github.com/iRobotEducation/create3_e
 
 Currently, the only reliable way to connect ROS2 and the iRobot Create3 is using the wifi connection to the GL.inet mini-router. If the computer and the robot are both on the GL.inet network, and `ros2 topic list` does not print any topics containing the `/robot_1` or `/robot_2` prefix, you max need to restart the robot's ROS2 application, which can be done through the page at the IP addresses above. 
 
+## Unity Robotics Hub 
+
+The [Unity Robotics Hub Repository](https://github.com/Unity-Technologies/Unity-Robotics-Hub) provides packages for Unity and ROS that allow users to setup a TCP connection between the two platforms. We have tested this and confirmed that their packages work to communicate between a Unity app and ROS2 on Windows 10, Ubuntu, and Win11/WSL. Instructions on how to set up a Unity project to exchange data with ROS can be found [on our wiki.](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu)
+
+In this repository, you can find a [sample Unity project](https://github.com/uic-evl/digital-twin/tree/main/Unity_Sample_Win10/DigitalTwin) for Windows 10. This project contains a sample subscriber script that will use the x acceleration of the Create3 (from the IMU) to spin a cube on the screen. Also in this project is a URDF file of the Create3, which will require the [URDF Importer Package](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/urdf_importer/urdf_tutorial.md) as well. 
+
 ## Next Steps
 
 Generally speaking, our next steps are as follows:
