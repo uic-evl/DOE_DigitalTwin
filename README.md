@@ -1,5 +1,7 @@
 # EVL Digital Twin Efforts
 
+For more detailed documentation, please visit our [wiki!](https://github.com/uic-evl/digital-twin/wiki)
+
 ## Overview
 
 For this project, our goal is to create a "digital twin" of a given robot so that it can be controlled remotely through a virtual reality (VR) application. At its simplest, this will involve communicating between ROS2 and some VR-capable application.
