@@ -75,5 +75,3 @@ Generally speaking, our next steps are as follows:
     * OV: Direct connection with ROS2 through Isaac Sim
     * Unity: Understand how to control/represent the robot in Unity using the Unity Robotics Hub tools with ROS2.   
     * Unreal: Open Question
-
-* Formalize experiments.
