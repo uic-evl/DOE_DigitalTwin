@@ -16,8 +16,8 @@ Hardware:
 * HMD
     * Oculus Quest 2
 * 2 [iRobot Create3](https://iroboteducation.github.io/create3_docs/) Roombas
-* Intel NUC with Windows (Named Discovery)
-* Intel NUC with Ubuntu
+* Columbia: Windows workstation
+* Discovery: Ubuntu workstation
 
 ## Getting Started
 
