@@ -18,6 +18,7 @@ Hardware:
 * 2 [iRobot Create3](https://iroboteducation.github.io/create3_docs/) Roombas
 * Columbia: Windows workstation
 * Discovery: Ubuntu workstation
+* Raspberry Pi 2, 4, and 5
 
 ## Getting Started
 
