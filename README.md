@@ -10,7 +10,7 @@ As we develop this application, we will test across hardware, development, and s
 
 Software:
 * NVIDIA Omniverse (OV)
-  * Isaac Sim
+  * Isaac Sim (OVIS)
 * Unreal Engine
 * Unity
 * ROS2 (Humble)
@@ -38,6 +38,15 @@ Hardware:
 ## Current Work
 
 To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
+
+Current Tasks:
+* Unreal
+  * Develop VR User Interface
+* Isaac Sim
+  * Twin Create3
+  * Add sensors (such as cameras)
+* Unity
+  * Explore twinning solutions 
 
 ## Unity Sample Project 
 
