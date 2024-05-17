@@ -10,6 +10,7 @@ As we develop this application, we will test across hardware, development, and s
 
 Software:
 * NVIDIA Omniverse (OV)
+  * Isaac Sim
 * Unreal Engine
 * Unity
 * ROS2 (Humble)
