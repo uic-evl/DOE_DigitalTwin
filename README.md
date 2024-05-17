@@ -46,7 +46,7 @@ Current Tasks:
   * Twin Create3
   * Add sensors (such as cameras)
 * Unity
-  * Explore twinning solutions 
+  * Explore twinning solutions (with and without ROS)
 
 ## Unity Sample Project 
 
