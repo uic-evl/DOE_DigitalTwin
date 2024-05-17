@@ -13,7 +13,9 @@ Software:
   * Isaac Sim (OVIS)
 * Unreal Engine
 * Unity
-* ROS2 (Humble)
+* ROS2
+  * Create3: Humble
+  * ER Arms: Galactic 
 
 Hardware:
 * HMD
