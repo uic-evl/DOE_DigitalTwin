@@ -28,8 +28,10 @@ Hardware:
    * Columbia (EVL)
    * Perserverance (ANL)
    * Curiosity (ANL)
+     * OV Nucleus Server 
    * Opportunity (ANL)
-   * Spirit (ANL) 
+   * Spirit (ANL)
+     * OV Nucleus Server 
 * Windows 10 Machines:
    * Sojourner (ANL)
 * Ubuntu Machines:
