@@ -1,1 +1,1 @@
-hello
+Please refer to our [wiki page](https://github.com/uic-evl/digital-twin/wiki/Simple-Digital-Twin-in-Omniverse-and-Unreal-Engine-5) for a detailed guide on how to use the demo_files in this directory. 
