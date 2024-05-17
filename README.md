@@ -58,4 +58,4 @@ In this repository, you can find a [sample Unity project](https://github.com/uic
 
 ## Isaac Sim and Unreal Sample Project 
 
-Isaac Sim is a robotics simulator within the NVIDIA Omniverse toolkit. We leverage the Omniverse-Unreal Connector to simulate the robot within Unreal in a Live Session. You can refer to [our guide](https://github.com/uic-evl/digital-twin/wiki/Simple-Digital-Twin-in-Omniverse-and-Unreal-Engine-5) on how to set this up with the Elephant Robotics arms (or, in theory, any arm with a URDF file). Necessary scripts can be found in [this repository.] (https://github.com/uic-evl/digital-twin/tree/main/Omniverse_ER/demo_files)
+Isaac Sim is a robotics simulator within the NVIDIA Omniverse toolkit. We leverage the Omniverse-Unreal Connector to simulate the robot within Unreal in a Live Session. You can refer to [our guide](https://github.com/uic-evl/digital-twin/wiki/Simple-Digital-Twin-in-Omniverse-and-Unreal-Engine-5) on how to set this up with the Elephant Robotics arms (or, in theory, any arm with a URDF file). Necessary scripts can be found in [this repository.](https://github.com/uic-evl/digital-twin/tree/main/Omniverse_ER/demo_files)
