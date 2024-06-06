@@ -28,11 +28,8 @@ Hardware:
    * Columbia (EVL)
    * Perserverance (ANL)
    * Curiosity (ANL)
-     * OV Nucleus Server 
    * Opportunity (ANL)
    * Spirit (ANL)
-     * OV Nucleus Server 
-* Windows 10 Machines:
    * Sojourner (ANL)
 * Ubuntu Machines:
    * Discovery (EVL) 
@@ -50,7 +47,7 @@ Current Tasks:
   * Twin Create3
   * Add sensors (such as cameras)
 * Unity
-  * Explore twinning solutions (with and without ROS)
+  * Add ZMQ Server functionality
 
 ## Unity Sample Project 
 
