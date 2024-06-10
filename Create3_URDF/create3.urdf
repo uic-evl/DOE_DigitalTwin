@@ -9,7 +9,7 @@
     <visual>
       <origin rpy="0 0 1.5707963267948966" xyz="0 0 0.039200000000000006"/>
       <geometry>
-        <mesh filename="meshes/body_visual.dae"/>
+        <mesh filename="C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt/digital-twin/Create3_URDF/meshes/body_visual.dae"/>
       </geometry>
     </visual>
     <collision name="create3_base_collision">
@@ -32,12 +32,12 @@
   <link name="bumper">
     <visual>
       <geometry>
-        <mesh filename="meshes/bumper_visual.dae"/>
+        <mesh filename="C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt/digital-twin/Create3_URDF/meshes/bumper_visual.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="meshes/bumper_collision.dae"/>
+        <mesh filename="C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt/digital-twin/Create3_URDF/meshes/bumper_collision.dae"/>
       </geometry>
     </collision>
     <inertial>
