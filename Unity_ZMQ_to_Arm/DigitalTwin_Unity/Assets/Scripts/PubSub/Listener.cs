@@ -14,6 +14,8 @@ namespace PubSub
         private readonly Action<string> _messageCallback;
         private bool _clientCancelled;
 
+        public int myValue = 11;
+
         private readonly ConcurrentQueue<string> _messageQueue = new ConcurrentQueue<string>();
 
         public Listener(string host, string port, Action<string> messageCallback)
@@ -62,7 +64,9 @@ namespace PubSub
             while (!_messageQueue.IsEmpty)
             {
                 if (_messageQueue.TryDequeue(out var message))
+                {
                     _messageCallback(message);
+                }
                 else
                     break;
             }

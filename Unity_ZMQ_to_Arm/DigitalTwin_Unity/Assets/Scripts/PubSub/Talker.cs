@@ -14,19 +14,22 @@ namespace PubSub
         private readonly string _host;
         private readonly string _port;
         private readonly Action<string> _messageCallback;
+        public Action<float> _messageUpdate;
         private bool _clientCancelled;
 
-        private readonly ConcurrentQueue<string> _messageQueue = new ConcurrentQueue<string>();
+        public float myValue = 11;
 
-        private GameObject myCube;
+        public ConcurrentQueue<string> _messageQueue = new ConcurrentQueue<string>();
+        //public ConcurrentQueue<float> _dataQueue;
+        public ConcurrentQueue<Vector3> _dataQueue;
 
-        public Talker(string host, string port, Action<string> messageCallback, GameObject clientCube)
+        public Talker(string host, string port, Action<string> messageCallback, ConcurrentQueue<Vector3> dataQueue)
         {
             _host = host;
             _port = port;
             _messageCallback = messageCallback;
-            myCube = clientCube;
-        }
+            _dataQueue = dataQueue;
+        }   
 
         public void Start()
         {
@@ -50,13 +53,35 @@ namespace PubSub
             using (var pubSocket = new PublisherSocket())
             {
                 pubSocket.Options.ReceiveHighWatermark = 1000;
-                pubSocket.Connect($"tcp://{_host}:{_port}");
+                pubSocket.Bind($"tcp://*:{_port}");
+
+                //Form message
+                string message = "temp";
 
                 while (!_clientCancelled)
                 {
-                    //Debug.Log("Saying Hello");
-                    string message = myCube.transform.position.ToString();
-                    pubSocket.SendFrame(message);
+                    Debug.Log("Saying Hello");
+                    //string message = myCube.transform.position.ToString();
+
+                    //If there is data in the queue, get that data
+                    if(!_dataQueue.IsEmpty)
+                    {
+                        //Send message
+                        if (_messageQueue.TryPeek(out var item))
+                        {
+                            pubSocket.SendFrame(item);
+                        }
+
+                        if (_dataQueue.TryDequeue(out var data))
+                        {
+                            message = data.ToString(); 
+                        }
+                        else
+                            break;
+                    }
+
+                    //Add message to queue for printing
+                    _messageQueue.Enqueue(message);
                 }
                 pubSocket.Close();
             }
@@ -68,7 +93,9 @@ namespace PubSub
             while (!_messageQueue.IsEmpty)
             {
                 if (_messageQueue.TryDequeue(out var message))
+                {
                     _messageCallback(message);
+                }
                 else
                     break;
             }
