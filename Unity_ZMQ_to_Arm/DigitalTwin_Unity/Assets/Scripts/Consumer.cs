@@ -25,14 +25,11 @@ public class Consumer : MonoBehaviour
 
     public TMP_Text consumerMessage;
 
-    //public GameObject myArm;
+    public GameObject myArm;
     //public GameObject myCube;
 
     public Thread consumerThread;
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
-
-    //public ConcurrentQueue<float> _dataQueue = new ConcurrentQueue<float>();
-    //public ConcurrentQueue<Vector3> _dataQueue = new ConcurrentQueue<Vector3>();
 
     private void Start()
     {
@@ -59,7 +56,7 @@ public class Consumer : MonoBehaviour
     {
         consumerMessage.text = message;
         //Debug.Log(message);
-        //myArm.GetComponent<ArmZMQ>().message = message;
+        myArm.GetComponent<ArmZMQ>().message = message;
     }
 
     private void OnStartConsumer()

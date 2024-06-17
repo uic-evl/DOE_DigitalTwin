@@ -18,19 +18,20 @@ using NetMQ.Sockets;
 public class Producer : MonoBehaviour
 {
     public bool producerActive = false;
+    public bool initSent = false;
 
     //Host and port to bind socket to 
     [SerializeField] private string host;
     [SerializeField] private string port;
 
     //public GameObject myArm;
-    //public GameObject myCube;
+    public GameObject myCube;
 
     public Thread producerThread;
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
-    public ConcurrentQueue<float> dataQueue = new ConcurrentQueue<float>();
+    //public ConcurrentQueue<float> dataQueue = new ConcurrentQueue<float>();
 
-    //public ConcurrentQueue<Vector3> _dataQueue = new ConcurrentQueue<Vector3>();
+    public ConcurrentQueue<Vector3> dataQueue = new ConcurrentQueue<Vector3>();
 
     private void Start()
     {
@@ -42,11 +43,11 @@ public class Producer : MonoBehaviour
     {
         if (producerActive)
         {
-            // If there is no data, send some
-            if(dataQueue.IsEmpty)
+            if(dataQueue.IsEmpty && myCube.transform.hasChanged)
             {
-                dataQueue.Enqueue(Time.deltaTime);
-                //_dataQueue.Enqueue(myCube.transform.position);
+                //dataQueue.Enqueue(Time.deltaTime);
+                dataQueue.Enqueue(myCube.transform.position);
+                myCube.transform.hasChanged = false;
             }
 
             // Print message
@@ -112,24 +113,29 @@ public class Producer : MonoBehaviour
                 //string message = myCube.transform.position.ToString();
 
                 //If there is data in the queue, get that data
-                if(!dataQueue.IsEmpty)
+                while(!dataQueue.IsEmpty)
                 {
-                    //Send message
-                    if (messageQueue.TryPeek(out var item))
+                    //Send data
+                    if (dataQueue.TryDequeue(out var item))
                     {
-                        pubSocket.SendFrame(item);
+                        pubSocket.SendFrame(item.ToString());
+                    }
+                    else
+                    {
+                        break;
                     }
 
+                    /*
                     if (dataQueue.TryDequeue(out var data))
                     {
                         message = data.ToString(); 
                     }
                     else
-                        break;
+                        break;*/
                 }
 
                 //Add message to queue for printing
-                messageQueue.Enqueue(message);
+                //messageQueue.Enqueue(message);
             }
             pubSocket.Close();
         }

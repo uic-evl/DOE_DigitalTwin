@@ -29,16 +29,11 @@ public class ArmZMQ : MonoBehaviour
     // Articulation Bodies
     ArticulationBody[] m_JointArticulationBodies;
 
-    //ROSConnection m_Ros;
-
     public string message;
 
     void Start()
     {
         Debug.Log("Initializing");
-        /*
-        // Get ROS connection static instance
-        m_Ros = ROSConnection.GetOrCreateInstance();*/
 
         // Create array for articulation bodies of each joint
         m_JointArticulationBodies = new ArticulationBody[k_NumRobotJoints];
@@ -49,9 +44,6 @@ public class ArmZMQ : MonoBehaviour
         {
             m_JointArticulationBodies[i] = m_Arm.transform.Find(LinkNames[i]).GetComponent<ArticulationBody>();
         }
-
-        // Subscribe to joint_states topic
-        //m_Ros.Subscribe<JointStateMsg>("/joint_states", UpdateJoints);
     }
 
     void Update()
@@ -64,20 +56,26 @@ public class ArmZMQ : MonoBehaviour
     // xDrive.Target of each Articulationbody
     public void UpdateJointAngle(float cmd, int joint)
     {
-        Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
-        //var angle = (float)cmd * Mathf.Rad2Deg;
+        //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
+        var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
-        jointXDrive.target = cmd;
+        jointXDrive.target = angle;
         m_JointArticulationBodies[joint].xDrive = jointXDrive;
     }
 
     public void UpdateJoints(string message)
     {
-        //Debug.Log(message.position[1]);
+        message = message.Replace("[", "").Replace("]", "");
+        message = message.Substring(2, message.Length - 2);
+        message = message.Substring(0, message.Length - 1);
+        string[] data = message.Split(",");
+
         for(int i = 0; i < k_NumRobotJoints; i++)
         {
-            UpdateJointAngle(message[i + 1], i);
+            data[i] = data[i].Replace("'", "");
+            data[i] = data[i].Replace("b", "");
+            //Debug.Log("Joint " + i.ToString() + " has " + data[i].ToString());
+            UpdateJointAngle(float.Parse(data[i]), i);
         }
     }
-
 }
