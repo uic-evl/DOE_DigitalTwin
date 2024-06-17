@@ -41,13 +41,18 @@ Hardware:
 To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
 
 Current Tasks:
-* Unreal Engine 5
-  * Develop VR User Interface
+* Unity
+  * Improve ZMQ networking to avoid OVIS crashes
+  * Add VR User Input
+  * Add Vicon tracking data and real arm position
 * Isaac Sim
   * Twin Create3
   * Add sensors (such as cameras)
-* Unity
-  * Add ZMQ Server functionality
+  * Fix ZMQ crashing issue
+  * Connect Unity controller configuration to arm hardware
+* Unreal Engine 5
+  * Develop VR User Interface
+
 
 ## Unity Sample Project 
 
