@@ -60,6 +60,8 @@ The [Unity Robotics Hub Repository](https://github.com/Unity-Technologies/Unity-
 
 In this repository, you can find a [sample Unity project](https://github.com/uic-evl/digital-twin/tree/main/Unity_Sample_Win10/DigitalTwin) for Windows 10. This project contains a sample subscriber script that will use the x acceleration of the Create3 (from the IMU) to spin a cube on the screen. Also in this project is a URDF file of the Create3, which will require the [URDF Importer Package](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/urdf_importer/urdf_tutorial.md) as well. 
 
+You can also find a [sample Unity project using ZMQ](https://github.com/uic-evl/digital-twin/tree/main/Unity_ZMQ_to_Arm/DigitalTwin_Unity). This project allows the arm simulation in Isaac Sim to be controlled from a Unity application using ZMQ connections.
+
 ## Isaac Sim and Unreal Engine 5 Sample Project 
 
 Isaac Sim is a robotics simulator within the NVIDIA Omniverse toolkit. We leverage the Omniverse-Unreal Connector to simulate the robot within Unreal in a Live Session. You can refer to [our guide](https://github.com/uic-evl/digital-twin/wiki/Simple-Digital-Twin-in-Omniverse-and-Unreal-Engine-5) on how to set this up with the Elephant Robotics arms (or, in theory, any arm with a URDF file). Necessary scripts can be found in [this repository.](https://github.com/uic-evl/digital-twin/tree/main/Omniverse_ER/demo_files)
