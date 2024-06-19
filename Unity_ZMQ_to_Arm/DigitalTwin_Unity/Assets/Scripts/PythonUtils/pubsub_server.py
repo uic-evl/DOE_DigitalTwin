@@ -4,10 +4,14 @@ import zmq
 
 context = zmq.Context()
 socket = context.socket(zmq.PUB)
-socket.bind("tcp://*:12346")
+socket.bind("tcp://*:12344")
 time_interval = 1.0
 
-while True:
+limit = 5
+iter = 0
+
+while iter < limit:#True:
+    iter += 1
     try:
         # send message every time_interval seconds
         message = str(random.uniform(-1.0,1.0)) + " " + str(random.uniform(-1.0,1.0))
@@ -15,9 +19,12 @@ while True:
         socket.send_string(message)
         time.sleep(time_interval)
     except KeyboardInterrupt:
-        # Handle the script being stopped by the user
-        # Clean up the socket and context
         socket.close()
         context.term()
         break
+    except zmq.ZMQError as e:
+        print("Error: " + str(e))
+        break
 
+socket.close()
+context.term()

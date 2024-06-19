@@ -101,7 +101,7 @@ public class Producer : MonoBehaviour
         AsyncIO.ForceDotNet.Force();
         using (var pubSocket = new PublisherSocket())
         {
-            pubSocket.Options.ReceiveHighWatermark = 1000;
+            pubSocket.Options.SendHighWatermark = 1000;
             pubSocket.Bind($"tcp://*:{port}");
 
             //Form message

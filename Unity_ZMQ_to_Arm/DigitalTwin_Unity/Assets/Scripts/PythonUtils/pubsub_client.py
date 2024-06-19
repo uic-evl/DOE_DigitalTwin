@@ -4,14 +4,14 @@ import zmq
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
-socket.connect('tcp://localhost:12345')
+socket.connect('tcp://localhost:12344')
 socket.subscribe('')
 time_interval = 0.01
 
 while True:
     try:
         # send message every time_interval seconds
-        message = socket.recv_string()
+        message = socket.recv_string(flags=zmq.NOBLOCK)
         print("Got: ", message)
         time.sleep(time_interval)
     except KeyboardInterrupt:
@@ -20,8 +20,13 @@ while True:
         socket.close()
         context.term()
         break
-    except ValueError as e:
-        # Handle any conversion errors
-        print("Message Recv Failed")
-        continue
+    except zmq.ZMQError as e:
 
+        if e.errno == zmq.EAGAIN:
+            pass # no message was ready (yet!)
+        else:
+            print("Error: " + str(e))
+            break
+
+socket.close()
+context.term()
