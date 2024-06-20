@@ -59,7 +59,7 @@ public class ArmZMQ : MonoBehaviour
         //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
         var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
-        jointXDrive.target = angle;
+        jointXDrive.target = angle * -1; //Attempt negate
         m_JointArticulationBodies[joint].xDrive = jointXDrive;
     }
 
