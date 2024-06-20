@@ -42,7 +42,7 @@ To view our current progress, you can either reference the [open Issues](https:/
 
 Current Tasks:
 * Unity
-  * Improve ZMQ networking to avoid OVIS crashes
+  * Add RabbitMQ Networking
   * Add VR User Input
   * Add Vicon tracking data and real arm position
 * Isaac Sim
