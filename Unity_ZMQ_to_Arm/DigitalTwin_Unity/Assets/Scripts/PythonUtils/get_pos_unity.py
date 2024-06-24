@@ -24,7 +24,7 @@ import zmq
 logger = logging.getLogger(__name__)
 commands = []
 
-#Get self (Target Cube) Position
+#Get self (Target Cube) Position, this is consumer
 
 class TargetControl(BehaviorScript):
 
@@ -43,12 +43,6 @@ class TargetControl(BehaviorScript):
 
         self.context = zmq.Context()
 
-        self.sock = self.context.socket(zmq.SUB)
-        self.sock.connect('tcp://localhost:12344')
-        self.sock.subscribe('')
-
-        logger.warn("ZMQ socket Set")
-
     def on_destroy(self):
         logger.info(f"{__class__.__name__}.on_destroy()->{self.prim_path}")
 
@@ -56,26 +50,40 @@ class TargetControl(BehaviorScript):
         self.context.destroy()
 
     def on_play(self):
-        logger.warn("Hello from on_play()")
+        self.sock = self.context.socket(zmq.SUB)
+        self.sock.connect('tcp://130.202.141.124:12344')
+        self.sock.subscribe('')
+
+        logger.warn("ZMQ socket Set")
+
+    def on_stop(self):
+        logger.info(f"{__class__.__name__}.on_stop()->{self.prim_path}")
+
+        self.had_first_update = False
+
+        self.sock.close()
 
     def on_update(self, current_time: float, delta_time: float):
         try:
-            logger.warn("Getting from Unity")
-            message = self.sock.recv_string()
+            #logger.warn("Getting from Unity")
+            message = self.sock.recv_string(flags=zmq.NOBLOCK)
 
             # Process string
-            logger.warn(message)
+            #logger.warn(message)
             message = message[1:-1]
             xform_data = message.split(",")
 
-            x = float(xform_data[0])
+            x = float(xform_data[0]) * -1.0
             y = float(xform_data[1])
-            z = float(xform_data[2])
+            z = float(xform_data[2]) * -1.0
 
             # Update xform
-            physicsUtils.set_or_add_translate_op(self.curr_prim, (x,z,y))
+            physicsUtils.set_or_add_translate_op(self.curr_prim, (z,x,y))
 
-        except ValueError as e:
-            print("Message Recv Failed")
+        except zmq.ZMQError as e:
+            if e.errno == zmq.EAGAIN:
+                pass # no message was ready (yet!)
+            else:
+                print("Error: " + str(e))
 
 
