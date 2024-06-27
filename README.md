@@ -43,13 +43,10 @@ To view our current progress, you can either reference the [open Issues](https:/
 Current Tasks:
 * Unity
   * Add RabbitMQ Networking
-  * Add VR User Input
   * Add Vicon tracking data and real arm position
 * Isaac Sim
   * Twin Create3
   * Add sensors (such as cameras)
-  * Fix ZMQ crashing issue
-  * Connect Unity controller configuration to arm hardware
 * Unreal Engine 5
   * Develop VR User Interface
 
