@@ -35,6 +35,9 @@ Hardware:
    * Discovery (EVL) 
    * Ingenuity (ANL) 
 * Raspberry Pi 2, 4, and 5
+* Sensors
+  * Vicon Cameras
+  * Luxonis Camera 
 
 ## Current Work
 
@@ -44,20 +47,18 @@ Current Tasks:
 * Unity
   * Add RabbitMQ Networking
   * Add Vicon tracking data and real arm position
+  * Improve VR Scene
 * Isaac Sim
   * Twin Create3
-  * Add sensors (such as cameras)
+  * Add sensors (such as cameras, Vicon trackers)
 * Unreal Engine 5
   * Develop VR User Interface
 
-
 ## Unity Sample Project 
 
+There are three sample Unity projects. More detail about using these projects can be found [in the /Unity folder](https://github.com/uic-evl/digital-twin/blob/main/Unity/README.md), as well as in each project's README. 
+
 The [Unity Robotics Hub Repository](https://github.com/Unity-Technologies/Unity-Robotics-Hub) provides packages for Unity and ROS that allow users to setup a TCP connection between the two platforms. We have tested this and confirmed that their packages work to communicate between a Unity app and ROS2 on Windows 10, Ubuntu, and Win11/WSL. Instructions on how to set up a Unity project to exchange data with ROS can be found [on our wiki.](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu)
-
-In this repository, you can find a [sample Unity project](https://github.com/uic-evl/digital-twin/tree/main/Unity_Sample_Win10/DigitalTwin) for Windows 10. This project contains a sample subscriber script that will use the x acceleration of the Create3 (from the IMU) to spin a cube on the screen. Also in this project is a URDF file of the Create3, which will require the [URDF Importer Package](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/urdf_importer/urdf_tutorial.md) as well. 
-
-You can also find a [sample Unity project using ZMQ](https://github.com/uic-evl/digital-twin/tree/main/Unity_ZMQ_to_Arm/DigitalTwin_Unity). This project allows the arm simulation in Isaac Sim to be controlled from a Unity application using ZMQ connections.
 
 ## Isaac Sim and Unreal Engine 5 Sample Project 
 
