@@ -44,16 +44,12 @@ public class Producer : MonoBehaviour
             if(dataQueue.IsEmpty && myCube.transform.hasChanged)
             {
                 //Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
-                //Quaternion rotation = myCube.transform.rotation;
                 Vector3 rotation = myCube.transform.rotation.eulerAngles;
-                
-                //Convert coordinates for OVIS
-                //Vector3 myRot = myCube.transform.rotation.eulerAngles;
-                //Vector3 newRot = new Vector3(-myRot.z, -myRot.x, myRot.y);
-                //Quaternion rotation = Quaternion.Euler(newRot);
 
                 //Debug.Log($"Enqueuing Position: {position}, Rotation: {rotation}");
+
                 dataQueue.Enqueue((myCube.transform.position, rotation));
+
                 myCube.transform.hasChanged = false;
             }
 

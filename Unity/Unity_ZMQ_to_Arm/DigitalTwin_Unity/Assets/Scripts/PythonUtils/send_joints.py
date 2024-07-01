@@ -21,6 +21,9 @@ except ModuleNotFoundError:
 logger = logging.getLogger(__name__)
 commands = []
 
+# This script should be placed on the robot xform in the OVIS Scene.
+# It gets the joints and sends to Unity
+
 class RobotControl(BehaviorScript):
     def on_init(self):
         logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
@@ -32,10 +35,6 @@ class RobotControl(BehaviorScript):
         self.sock = self.context.socket(zmq.PUB)
         #self.sock.connect('tcp://130.202.141.68:5560') #FOR ER LINK
         self.sock.bind("tcp://*:12346") #FOR UNITY
-
-        #socket to pi in rpl tcp://146.137.240.73:5560
-        # defaultPrimPath = str(self.stage.GetDefaultPrim().GetPath())
-        # omni.usd.get_context().get_stage()
 
         self.had_first_update = False
 

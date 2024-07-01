@@ -1,3 +1,10 @@
+/**************************************
+ArmZMQ Class
+Recieve message from Consumer, then 
+parse out the joint angles and apply 
+the the URDF-based ArticulationBodies
+**************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

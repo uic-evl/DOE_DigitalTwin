@@ -18,6 +18,13 @@ from pxr import (Gf, PhysxSchema, Sdf, Tf, Usd, UsdGeom, UsdLux, UsdPhysics,
                  UsdShade, UsdUtils)
 import zmq
 
+# This script should be placed on the IK Target in the OVIS Scene.
+# It gets the IK Target position and rotation from Unity
+# Applies the proper transformation, then updates the IK Target
+# in Omniverse.
+
+# Line 50 must be updated with the IP address of the Unity machine
+
 logger = logging.getLogger(__name__)
 commands = []
 
@@ -55,52 +62,30 @@ class TargetControl(BehaviorScript):
     def on_update(self, current_time: float, delta_time: float):
         try:
             message = self.sock.recv_multipart(flags=zmq.NOBLOCK)
-            #logger.warn(message[0])
+            
+            #logger.warn(message)
 
-            #if len(message) != 4:
-            #    logger.error(f"Unexpected message format: {message}")
-            #    return
-
-            logger.warn(message)
-
+            # Parse data as string
             position_data = message[1].decode('utf-8').replace("(", "").replace(")", "")
             rotation_data = message[3].decode('utf-8').replace("(", "").replace(")", "")
 
             position_data = position_data.split(",")
             rotation_data = rotation_data.split(",")
 
-            #if len(position_data) != 3 or len(rotation_data) != 3:
-            #    logger.error(f"Unexpected message format: {message}")
-            #    return
-
             x = float(position_data[0]) * -1.0
             y = float(position_data[1])
             z = float(position_data[2]) 
-
-            #logger.warn(rotation_data)
-    
-            #r = float(rotation_data[0])
-            #i = float(rotation_data[1])
-            #j = float(rotation_data[2])
-            #k = float(rotation_data[3])
 
             rx = float(rotation_data[0]) 
             ry = float(rotation_data[1]) * -1.0
             rz = float(rotation_data[2]) * -1.0
 
             physicsUtils.set_or_add_translate_op(self.curr_prim, (z,x,y))
-            #physicsUtils.set_or_add_rotate_op(self.curr_prim, (rz,rx,ry))
-            #physicsUtils.set_or_add_orient_op(self.curr_prim, Gf.Quatf(r,i,j,k))
 
             # Update transform using UsdGeom.XformCommonAPI
             xformable = UsdGeom.XformCommonAPI(self.curr_prim)
-
             rot_att = self.curr_prim.GetAttribute("xformOp:rotateXYZ")
             rot_att.Set(Gf.Vec3f(rz,rx,ry))
-
-
-            #xformable.SetTranslate((z, x, y))
-            #xformable.SetRotate(Gf.Vec3d(rz,rx,ry))
 
             # Print statements to confirm data
             #print(f"Updated Position: {(z, x, y)}")
