@@ -39,7 +39,7 @@ To use the `Bidirectional_ROS2` scene, you will need to have completed the [Pack
 
 You will also need the Elephant Robotics ROS2 package installed. [See the wiki for tips.](https://github.com/uic-evl/digital-twin/wiki/Elephant-Robotics-Arms)
 
-### Control arm in Unity from ROS2 nodes (Unity Subscriber Test)
+### Control arm visualization in Unity from ROS2 nodes (Unity Subscriber Test)
 1. In a terminal (if Windows 11, this will be a WSL terminal):
    1. Launch Elephant Robotics slider control node with `ros2 launch myarm_300 slider_control.launch.py` 
    2. Launch the ROS TCP Endpoint ([described here](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu-and-Windows-10)) with `ros2 run ros_tcp_endpoint default_server_endpoint --ros-args -p ROS_IP:=<your IP address>`
@@ -47,7 +47,26 @@ You will also need the Elephant Robotics ROS2 package installed. [See the wiki f
         * Windows 10: `ipconfig`
         * Windows 11 in WSL: `hostname -I`
         * Ubuntu: `ifconfig`
-2. 
+2. In Unity, find the ROS settings at "Robotics > ROS Settings" and update the IP address. 
+3. Press play on the game, then click the "Subscriber" button
+4. Move the sliders from the ROS GUI, and observe the arm move in Unity. 
+
+### Control physical arm from Unity using ROS2 messages (Unity Publisher Test)
+
+This section is a work in progress. 
+
+1. In a terminal (if Windows 11, this will be a WSL terminal):
+   1. Launch the ROS TCP Endpoint ([described here](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu-and-Windows-10)) with `ros2 run ros_tcp_endpoint default_server_endpoint --ros-args -p ROS_IP:=<your IP address>`
+      * You can find your IP address with:
+        * Windows 10: `ipconfig`
+        * Windows 11 in WSL: `hostname -I`
+        * Ubuntu: `ifconfig`
+2. In Unity, find the ROS settings at "Robotics > ROS Settings" and update the IP address. 
+3. Press play on the game, then click the "Publisher" button
+4. In another terminal, check that a "/joint_states" topic has been created with `ros2 topic list`
+5. Affirm the data is being shared on the topic
+   1. In a terminal, run `ros2 topic echo /joint_states`
+   2. In the Unity Game view, use the arrow keys (as directed at the top of the screen) to control the imported URDF. You should see the joint angles in the output of the `ros2 topic echo /joint_states` command. 
 
 ## ZMQ Scene
 
