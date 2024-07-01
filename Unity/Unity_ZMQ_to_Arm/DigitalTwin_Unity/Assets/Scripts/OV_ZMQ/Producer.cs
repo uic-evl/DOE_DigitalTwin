@@ -5,15 +5,12 @@ that will send messages on
 a specific host/port
 **************************************/
 
-using System.Collections;
 using System.Collections.Generic;
-using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using UnityEngine;
 using NetMQ;
 using NetMQ.Sockets;
-
 
 public class Producer : MonoBehaviour
 {
@@ -27,11 +24,12 @@ public class Producer : MonoBehaviour
     //public GameObject myArm;
     public GameObject myCube;
 
+    public Transform RobotOrgin;
+    public Transform ArmOrigin;
+
     public Thread producerThread;
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
-    //public ConcurrentQueue<float> dataQueue = new ConcurrentQueue<float>();
-
-    public ConcurrentQueue<Vector3> dataQueue = new ConcurrentQueue<Vector3>();
+    public ConcurrentQueue<(Vector3 position, Vector3 rotation)> dataQueue = new ConcurrentQueue<(Vector3, Vector3)>();
 
     private void Start()
     {
@@ -45,8 +43,17 @@ public class Producer : MonoBehaviour
         {
             if(dataQueue.IsEmpty && myCube.transform.hasChanged)
             {
-                //dataQueue.Enqueue(Time.deltaTime);
-                dataQueue.Enqueue(myCube.transform.position);
+                Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
+                //Quaternion rotation = myCube.transform.rotation;
+                Vector3 rotation = myCube.transform.rotation.eulerAngles;
+                
+                //Convert coordinates for OVIS
+                //Vector3 myRot = myCube.transform.rotation.eulerAngles;
+                //Vector3 newRot = new Vector3(-myRot.z, -myRot.x, myRot.y);
+                //Quaternion rotation = Quaternion.Euler(newRot);
+
+                Debug.Log($"Enqueuing Position: {position}, Rotation: {rotation}");
+                dataQueue.Enqueue((position, rotation));
                 myCube.transform.hasChanged = false;
             }
 
@@ -104,38 +111,29 @@ public class Producer : MonoBehaviour
             pubSocket.Options.SendHighWatermark = 1000;
             pubSocket.Bind($"tcp://*:{port}");
 
-            //Form message
-            string message = "temp";
-
             while (producerActive)
             {
-                Debug.Log("Saying Hello");
-                //string message = myCube.transform.position.ToString();
-
-                //If there is data in the queue, get that data
+                // If there is data in the queue, get that data
                 while(!dataQueue.IsEmpty)
                 {
-                    //Send data
                     if (dataQueue.TryDequeue(out var item))
                     {
-                        pubSocket.SendFrame(item.ToString());
+                        // Create a multipart message
+                        var message = new NetMQMessage();
+                        message.Append("Position");
+                        message.Append(item.position.ToString());
+                        message.Append("Rotation");
+                        message.Append(item.rotation.ToString());
+
+                        // Send the multipart message
+                        pubSocket.SendMultipartMessage(message);
+                        Debug.Log($"Sent Position: {item.position}, Rotation: {item.rotation}");
                     }
                     else
                     {
                         break;
                     }
-
-                    /*
-                    if (dataQueue.TryDequeue(out var data))
-                    {
-                        message = data.ToString(); 
-                    }
-                    else
-                        break;*/
                 }
-
-                //Add message to queue for printing
-                //messageQueue.Enqueue(message);
             }
             pubSocket.Close();
         }

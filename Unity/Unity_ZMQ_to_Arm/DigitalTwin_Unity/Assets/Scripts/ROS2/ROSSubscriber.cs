@@ -1,3 +1,8 @@
+/*
+*  This is a very simple Subscriber script,  
+*  useful for debugging your ROS connection
+*/
+
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Std;

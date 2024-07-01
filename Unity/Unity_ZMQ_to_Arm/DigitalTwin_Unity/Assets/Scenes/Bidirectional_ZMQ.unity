@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203, y: 196.3}
+  m_AnchoredPosition: {x: 5, y: 241}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40125171
@@ -2718,7 +2718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.80007, y: 168.69998}
+  m_AnchoredPosition: {x: -53.00006, y: 313.2}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &433433412 stripped
@@ -5622,7 +5622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.8, y: 218.5}
+  m_AnchoredPosition: {x: -53, y: 363}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &790671784 stripped
@@ -6906,65 +6906,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2056382229}
   m_SourcePrefab: {fileID: 100100000, guid: 607f45cc80d46fc4cb121b6dc6776ea4, type: 3}
---- !u!1 &1076950905
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1076950907}
-  - component: {fileID: 1076950906}
-  - component: {fileID: 1076950908}
-  m_Layer: 0
-  m_Name: ROSSubscriber
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1076950906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076950905}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f9a3a3fd2d48b498ea7b3577caceb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopicName: chatter
---- !u!4 &1076950907
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076950905}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -433.47333, y: -197.32014, z: -755.5489}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1922133355}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1076950908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076950905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096b32a4ca1bccd4b8c759ef231c2a5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Arm: {fileID: 759580946}
 --- !u!1 &1088190170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6999,8 +6940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203, y: 217}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 6, y: 279}
+  m_SizeDelta: {x: 200, y: 18.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1088190172
 MonoBehaviour:
@@ -7022,7 +6963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Consumer Message
+  m_text: 'Consumer Message:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7085,7 +7026,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 30.069637}
+  m_margin: {x: 0, y: 0, z: -5.1340485, w: 30.069637}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8567,6 +8508,9 @@ MonoBehaviour:
   host: 130.202.141.88
   port: 12344
   myCube: {fileID: 1147718877}
+  RobotOrgin: {fileID: 0}
+  TableOrigin: {fileID: 0}
+  ArmOrigin: {fileID: 0}
 --- !u!4 &1423132609
 Transform:
   m_ObjectHideFlags: 0
@@ -11114,7 +11058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57.732002, y: 218.5}
+  m_AnchoredPosition: {x: 63.532013, y: 363.00006}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812643687
@@ -11865,7 +11809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57.73185, y: 168.70001}
+  m_AnchoredPosition: {x: 63.53186, y: 313.20007}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871760938
@@ -13509,7 +13453,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1076950907}
   - {fileID: 759580949}
   - {fileID: 162277982}
   - {fileID: 1147718878}

@@ -1,3 +1,8 @@
+/*
+*  Subscribe to Elephant Robotics "/joint_states" topic  
+*  and update the URDF arm visualization. 
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +11,7 @@ using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Std;
 using RosMessageTypes.Sensor;
 
-public class SpotJointSubscriber : MonoBehaviour
+public class ArmSubscriber : MonoBehaviour
 {
     // Each link name
     public static readonly string[] LinkNames =
@@ -29,13 +34,10 @@ public class SpotJointSubscriber : MonoBehaviour
     // Articulation Bodies
     ArticulationBody[] m_JointArticulationBodies;
 
-    ROSConnection m_Ros;
+    public ROSConnection m_Ros;
 
-    void Start()
+    void Awake()
     {
-        // Get ROS connection static instance
-        m_Ros = ROSConnection.GetOrCreateInstance();
-
         // Create array for articulation bodies of each joint
         m_JointArticulationBodies = new ArticulationBody[k_NumRobotJoints];
 
@@ -45,9 +47,6 @@ public class SpotJointSubscriber : MonoBehaviour
         {
             m_JointArticulationBodies[i] = m_Arm.transform.Find(LinkNames[i]).GetComponent<ArticulationBody>();
         }
-
-        // Subscribe to joint_states topic
-        m_Ros.Subscribe<JointStateMsg>("/joint_states", UpdateJoints);
     }
 
     // Update the joint angle by setting the
@@ -62,11 +61,22 @@ public class SpotJointSubscriber : MonoBehaviour
 
     public void UpdateJoints(JointStateMsg message)
     {
-        //Debug.Log(message.position[1]);
         for(int i = 0; i < k_NumRobotJoints; i++)
         {
             UpdateJointAngle(message.position[i], i);
         }
+    }
+
+    public void Sub()
+    {
+        // Subscribe to joint_states topic
+        m_Ros.Subscribe<JointStateMsg>("/joint_states", UpdateJoints);
+    }
+
+    public void Unsub()
+    {
+        // Stop subscribing
+        m_Ros.Unsubscribe("/joint_states");
     }
 
 }
