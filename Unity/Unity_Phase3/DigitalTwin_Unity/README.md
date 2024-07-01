@@ -3,6 +3,8 @@
 ## Overview 
 This is a sample scene that uses the Unity Robotics Hub URDF importer to import the Elephant Robotics Arm and control it either through Isaac Sim or the Elepahnt Robotics ROS2 nodes. 
 
+This project was made in Unity version **2022.3.30f1**
+
 This project requires an Isaac Sim counterpart scene. You can find this on Spirit's Nucleus under `/Projects/Digital Twin/unity_connection/pos_from_unity.usd`
 
 ZMQ-Unity code adapted from [gench23's repo](https://github.com/gench23/unity-zeromq-client)
@@ -33,6 +35,11 @@ Within the "Assets" folder, you will find the [typical Unity folder structure](h
 
 ## ROS2 Scene
 
+To use the `Bidirectional_ROS2` scene, you will need to have completed the [Package Installation](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu-and-Windows-10#package-installation) section on our ROS2 to Unity wiki page. 
 
+You will also need the Elephant Robotics ROS2 package installed. [See the wiki for tips.](https://github.com/uic-evl/digital-twin/wiki/Elephant-Robotics-Arms)
 
 ## ZMQ Scene
+
+> [!WARNING]  
+> Do not press the "Stop Consumer" button before you have pressed "Stop Producer". This will cause the Unity editor to crash. 
