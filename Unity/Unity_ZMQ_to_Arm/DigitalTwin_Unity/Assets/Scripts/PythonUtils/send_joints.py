@@ -1,5 +1,3 @@
-# this script creates robot control class that takes information from behavior script. 
-
 import logging
 import math
 from pprint import pprint
@@ -22,7 +20,6 @@ except ModuleNotFoundError:
 
 logger = logging.getLogger(__name__)
 commands = []
-
 
 class RobotControl(BehaviorScript):
     def on_init(self):
@@ -71,20 +68,15 @@ class RobotControl(BehaviorScript):
     def on_update(self, current_time: float, delta_time: float):
         if not self.had_first_update:
             self.on_first_update(current_time, delta_time)
-        #logger.warn("Updating")
+        
+        # Get joint positions from the robot
         joints = self.robot.get_joint_positions()
-        joints = [str(j).encode() for j in joints]
-        # joints = [*joints[:5], b'-4.7']
-        #logger.warn(f'ov joints: {joints}')
-
-        #self.sock.send_multipart([b'Set', *joints])
-        self.sock.send_string(str(joints))
-        #logger.warn(str(joints))
-
-        #commands.append(*joints)
-        #for command in commands:
-        #    self.sock.send_multipart([b'1234magic5678', b'Set', command])
-
-        # self.robot.apply_action(
-        #     ArticulationAction(joint_positions=np.array(joints))
-        # )
+        
+        # Convert joint positions to strings and then to a single string
+        joints_str = str([str(j) for j in joints])
+        
+        # Send joint positions as a single string
+        try:
+            self.sock.send_string(joints_str)
+        except zmq.ZMQError as exc:
+            logger.warn(exc)
