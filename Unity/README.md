@@ -13,7 +13,7 @@ All of these projects require some level of outside system to work properly. Ple
 ## Using Unity
 
 ### File Structure
-To use these projects, clone or download this repository. Then, you can add each project to the Unity Hub. On the Unity Hub Projects tab,  click Add > Add project from disk. Then, navigate to wherever you have cloned this repository and locate the base directory of the Unity project you with to open. The base directory of a Unity project is the folder that contains, among other folders, the "Assets" folder. 
+To use these projects, clone or download this repository. Then, you can add each project to the Unity Hub. On the Unity Hub Projects tab,  click Add > Add project from disk. Then, navigate to wherever you have cloned this repository and locate the parent directory of the Unity project you want to open. The parent directory of a Unity project is the folder that contains, among other folders, the "Assets" folder. 
 
 Unity projects have several file structure conventions. 
 * Projects will always have an `Assets` folder, and it is within this folder than most of the important user-developed files will go. 
