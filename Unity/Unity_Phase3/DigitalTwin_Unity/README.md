@@ -5,7 +5,7 @@ This is a sample scene that uses the Unity Robotics Hub URDF importer to import 
 
 This project was made in Unity version **2022.3.30f1**
 
-This project requires an Isaac Sim counterpart scene. You can find this on Spirit's Nucleus under `"/Projects/Digital Twin/unity_connection/pos_from_unity.usd"`
+This project requires an Isaac Sim counterpart scene. You can find this on Spirit's Nucleus under `"/Projects/Digital Twin/unity_connection/pos_from_unity.usd"`. The Unity application will connect to the Issac Sim USD stage when the OVIS simulation is running. The purpose of this connection is to have Unity send VR user inputs to OVIS so that OVIS can perform the IK computation. The results to this computation are then published so that they may be used by the virtual and physical arms. 
 
 ZMQ-Unity code adapted from [gench23's repo](https://github.com/gench23/unity-zeromq-client)
 ROS-Unity ArticulationBody control code adapted from [bryceikeda's repo](https://github.com/bryceikeda/SpotTutorial)
