@@ -35,7 +35,7 @@ public class Producer : MonoBehaviour
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
     //public ConcurrentQueue<float> dataQueue = new ConcurrentQueue<float>();
 
-    public ConcurrentQueue<Vector3> dataQueue = new ConcurrentQueue<Vector3>();
+    public ConcurrentQueue<(Vector3 position, Vector3 rotation)> dataQueue = new ConcurrentQueue<(Vector3, Vector3)>();
 
     private void Start()
     {
@@ -50,9 +50,10 @@ public class Producer : MonoBehaviour
             if(dataQueue.IsEmpty && myCube.transform.hasChanged)
             {
                 //dataQueue.Enqueue(Time.deltaTime);
-                dataQueue.Enqueue(myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition - ArmOrigin.localPosition);
+                Vector3 rotation = myCube.transform.rotation.eulerAngles;
+                dataQueue.Enqueue((myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition - ArmOrigin.localPosition, rotation));
                 //dataQueue.Enqueue(myCube.transform.localPosition);
-                Debug.Log("Hello from Enqueue");
+                //Debug.Log("Hello from Enqueue");
                 //Debug.Log(myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition);
                 myCube.transform.hasChanged = false;
             }
@@ -112,37 +113,29 @@ public class Producer : MonoBehaviour
             pubSocket.Bind($"tcp://*:{port}");
 
             //Form message
-            string message = "temp";
-
             while (producerActive)
             {
-                //Debug.Log("Saying Hello");
-                //string message = myCube.transform.position.ToString();
-
-                //If there is data in the queue, get that data
+                // If there is data in the queue, get that data
                 while(!dataQueue.IsEmpty)
                 {
-                    //Send data
                     if (dataQueue.TryDequeue(out var item))
                     {
-                        pubSocket.SendFrame(item.ToString());
+                        // Create a multipart message
+                        var message = new NetMQMessage();
+                        message.Append("Position");
+                        message.Append(item.position.ToString());
+                        message.Append("Rotation");
+                        message.Append(item.rotation.ToString());
+
+                        // Send the multipart message
+                        pubSocket.SendMultipartMessage(message);
+                        Debug.Log($"Sent Position: {item.position}, Rotation: {item.rotation}");
                     }
                     else
                     {
                         break;
                     }
-
-                    /*
-                    if (dataQueue.TryDequeue(out var data))
-                    {
-                        message = data.ToString(); 
-                    }
-                    else
-                        break;*/
                 }
-
-                //Add message to queue for printing
-                //messageQueue.Enqueue(message);
             }
             pubSocket.Close();
         }

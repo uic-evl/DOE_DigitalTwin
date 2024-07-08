@@ -53,9 +53,13 @@ public class ArmZMQ : MonoBehaviour
     public void UpdateJointAngle(float cmd, int joint)
     {
         //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
+        if(joint == 0)
+        {
+            cmd = cmd * -1.0f;
+        }
         var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
-        jointXDrive.target = angle * -1; //Attempt negate
+        jointXDrive.target = angle; 
         m_JointArticulationBodies[joint].xDrive = jointXDrive;
     }
 

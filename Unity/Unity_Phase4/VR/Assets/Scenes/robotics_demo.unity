@@ -8271,6 +8271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: ER300_Wrist
   Client: {fileID: 1371909402}
+  offset: {x: -0.024515774, y: 0, z: -0.03987602}
+  rot_offset: {x: 0, y: 180, z: 0}
 --- !u!4 &953836447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
@@ -11119,7 +11121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 130.202.141.95
+  host: 192.168.8.139
   port: 12346
   consumerMessage: {fileID: 535272962}
   myArm: {fileID: 624757954}
@@ -12027,6 +12029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: ER300_Shoulder
   Client: {fileID: 1371909402}
+  offset: {x: -0.024515774, y: 0, z: -0.03987602}
+  rot_offset: {x: 0, y: 180, z: 0}
 --- !u!4 &1245220485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8164705571879959090, guid: 69bcbe8a3c723a8459bad61946074109,
@@ -13015,7 +13019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   producerActive: 0
   initSent: 0
-  host: 130.202.141.95
+  host: 192.168.8.139
   port: 12344
   myCube: {fileID: 1090162995}
   RobotOrgin: {fileID: 414664339}

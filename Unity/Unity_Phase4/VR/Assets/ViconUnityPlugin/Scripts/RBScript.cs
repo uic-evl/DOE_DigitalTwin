@@ -19,6 +19,9 @@ namespace UnityVicon
     private Vector3 m_LastGoodPosition;
     private bool m_bHasCachedPose = false;
 
+    public Vector3 offset;
+    public Vector3 rot_offset;
+
     public RBScript()
     {
     }
@@ -49,7 +52,11 @@ namespace UnityVicon
         // See https://gamedev.stackexchange.com/questions/157946/converting-a-quaternion-in-a-right-to-left-handed-coordinate-system
 
         Root.localRotation = new Quaternion((float)ORot.Rotation[1], -(float)ORot.Rotation[2], -(float)ORot.Rotation[0], (float)ORot.Rotation[3]);
-        Root.localPosition = new Vector3(-(float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f, (float)OTran.Translation[0] * 0.001f);
+        Root.localPosition = new Vector3(-(float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f, (float)OTran.Translation[0] * 0.001f) - offset;
+
+        Vector3 new_rot = Root.localRotation.eulerAngles;
+        new_rot += rot_offset;
+        Root.localRotation = Quaternion.Euler(new_rot);
 
         m_LastGoodPosition = Root.localPosition;
         m_LastGoodRotation = Root.localRotation;
