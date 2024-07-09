@@ -123,9 +123,9 @@ public class Producer : MonoBehaviour
                         // Create a multipart message
                         var message = new NetMQMessage();
                         message.Append("Position");
-                        message.Append(item.position.ToString());
+                        message.Append(item.position.ToString("F5"));
                         message.Append("Rotation");
-                        message.Append(item.rotation.ToString());
+                        message.Append(item.rotation.ToString("F5"));
 
                         // Send the multipart message
                         pubSocket.SendMultipartMessage(message);
