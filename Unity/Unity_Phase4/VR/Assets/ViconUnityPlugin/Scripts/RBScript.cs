@@ -58,6 +58,8 @@ namespace UnityVicon
         new_rot += rot_offset;
         Root.localRotation = Quaternion.Euler(new_rot);
 
+        Debug.Log(Root.localRotation);
+
         m_LastGoodPosition = Root.localPosition;
         m_LastGoodRotation = Root.localRotation;
         m_bHasCachedPose = true;
