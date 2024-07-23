@@ -6,23 +6,21 @@ import omni.physx.scripts.utils as pxutils
 from omni.physx.scripts import physicsUtils
 from omni.isaac.dynamic_control import _dynamic_control
 from omni.kit.scripting import BehaviorScript
-from pxr import (Gf, UsdGeom)
+from pxr import Gf, UsdGeom
 import sys
 import os
+import math
 
 # Vicon SDK
-# If you have not already added the vicon_dssdk folder to your system path
-# run the line below.
-# Once you have run this, you will not need to run it again.
 sys.path.insert(0, os.path.abspath('C:/Users/aangara/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/site-packages'))
 from vicon_dssdk import ViconDataStream
 
 logger = logging.getLogger(__name__)
 commands = []
 
-class TargetControl(BehaviorScript):
+class WristTargetControl(BehaviorScript):
     VICON_TRACKER_IP = "192.168.8.241"
-    OBJECT_NAME = "ER300_Wrist"
+    WRIST_OBJECT_NAME = "ER300_Wrist"
 
     def on_init(self):
         logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
@@ -30,7 +28,6 @@ class TargetControl(BehaviorScript):
 
         # Initialize Vicon client
         self.client = ViconDataStream.Client()
-        #self.stage = omni.usd.get_context().get_stage()
 
         # Connect to Vicon tracker
         try:
@@ -62,7 +59,16 @@ class TargetControl(BehaviorScript):
         logger.warn("Vicon tracker initialized")
 
     def on_stop(self):
+        follow_target = omni.usd.get_context().get_stage().GetPrimAtPath(str(self.prim_path))
         logger.info(f"{__class__.__name__}.on_stop()->{self.prim_path}")
+        translation = Gf.Vec3d(0, 0, 0)
+        rotation = Gf.Vec3f(0, 0, 0)  # Assuming XYZ Euler angles
+        translate_op = follow_target.GetAttribute('xformOp:translate')
+        translate_op.Set(Gf.Vec3f(translation))
+
+        # Apply rotation as XYZ Euler angles
+        rot_att = follow_target.GetAttribute("xformOp:rotateXYZ")
+        rot_att.Set(Gf.Vec3f(rotation))
 
     def on_update(self, current_time: float, delta_time: float):
         if not self.client:
@@ -98,18 +104,19 @@ class TargetControl(BehaviorScript):
                     
                     # Get translation and rotation from Vicon
                     v_translation, v_translation_quality = self.client.GetSegmentGlobalTranslation(subjectName, segmentName)
-                    v_rotation, v_rotation_quality = self.client.GetSegmentGlobalRotationQuaternion(subjectName, segmentName)
-                    logger.info(v_translation)
-                    logger.info(v_rotation)
+                    v_rotation, v_rotation_quality = self.client.GetSegmentGlobalRotationEulerXYZ(subjectName, segmentName)
+                    logger.info("translation stuff: "+ str(v_translation))
+                    logger.info("rotation stuff: " + str(v_rotation))
 
-                    # Assuming you are tracking the specified object
-                    if subjectName == self.OBJECT_NAME:
+                    # Track the wrist object (ViconCubeWrist)
+                    if subjectName == self.WRIST_OBJECT_NAME:
                         # Convert Vicon coordinates to Omniverse coordinates
-                        translation = Gf.Vec3d(-v_translation[1] * 0.001, v_translation[2] * 0.001, v_translation[0] * 0.001)
-                        rotation = Gf.Vec3f(v_rotation[1], -v_rotation[2], -v_rotation[0])  # Assuming XYZ Euler angles
+                        # Adjust the translation and rotation for vertical orientation
+                        translation = Gf.Vec3d(v_translation[0] * 0.001, v_translation[1] * 0.001, v_translation[2] * 0.001) - Gf.Vec3d(0.006, 0.005, 0.06)
+                        rotation = Gf.Vec3f(math.degrees(v_rotation[0]), math.degrees(v_rotation[1]), math.degrees(v_rotation[2]))  # Convert radians to degrees
 
-                        # Apply transformation to the ViconCube
-                        follow_target = self.stage.GetPrimAtPath(str(self.prim_path) + '/ViconCube')
+                        # Apply transformation to the ViconCubeWrist
+                        follow_target = omni.usd.get_context().get_stage().GetPrimAtPath(str(self.prim_path))
                         if follow_target:
                             # Apply translation
                             translate_op = follow_target.GetAttribute('xformOp:translate')
@@ -121,7 +128,7 @@ class TargetControl(BehaviorScript):
                             rot_att = follow_target.GetAttribute("xformOp:rotateXYZ")
                             if not rot_att:
                                 rot_att = follow_target.CreateAttribute("xformOp:rotateXYZ", Sdf.ValueTypeNames.Float3, False)
-                            rot_att.Set(Gf.Vec3f(rotation))
+                            rot_att.Set(rotation)
 
         except ViconDataStream.DataStreamException as e:
             logger.warn('Handled data stream error' + str(e))
