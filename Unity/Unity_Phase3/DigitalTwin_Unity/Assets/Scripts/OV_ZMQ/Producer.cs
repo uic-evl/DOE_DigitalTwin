@@ -21,6 +21,14 @@ public class Producer : MonoBehaviour
     [SerializeField] private string host;
     [SerializeField] private string port;
 
+    //Timer
+    private float startTime;
+    private float currentTime;
+    private float endTime;
+    public float delay;
+
+    public bool isWait = false;
+
     //public GameObject myArm;
     public GameObject myCube;
 
@@ -41,7 +49,19 @@ public class Producer : MonoBehaviour
     {
         if (producerActive)
         {
-            if(dataQueue.IsEmpty && myCube.transform.hasChanged)
+            if(isWait == false)
+            {
+                startTime = Time.time;
+                endTime = startTime + delay;
+                isWait = true;
+            }
+
+            if(Time.time >= endTime)
+            {
+                isWait = false;
+            }
+
+            if(dataQueue.IsEmpty && isWait == false)//myCube.transform.hasChanged)
             {
                 //Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
                 Vector3 rotation = myCube.transform.rotation.eulerAngles;
@@ -117,13 +137,13 @@ public class Producer : MonoBehaviour
                         // Create a multipart message
                         var message = new NetMQMessage();
                         message.Append("Position");
-                        message.Append(item.position.ToString());
+                        message.Append(item.position.ToString("F3"));
                         message.Append("Rotation");
-                        message.Append(item.rotation.ToString());
+                        message.Append(item.rotation.ToString("F3"));
 
                         // Send the multipart message
                         pubSocket.SendMultipartMessage(message);
-                        Debug.Log($"Sent Position: {item.position}, Rotation: {item.rotation}");
+                        //Debug.Log($"Sent Position: {item.position}, Rotation: {item.rotation}");
                     }
                     else
                     {

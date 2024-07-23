@@ -1,5 +1,5 @@
 /**************************************
-Consumer Class
+IKFailChecker Class
 A consumer starts a thread that will
 listen (subscribe) on a specific 
 host/port for a message
@@ -15,7 +15,7 @@ using TMPro;
 using NetMQ;
 using NetMQ.Sockets;
 
-public class Consumer : MonoBehaviour
+public class IKFailChecker : MonoBehaviour
 {
     public bool consumerActive = false;
     
@@ -23,10 +23,10 @@ public class Consumer : MonoBehaviour
     [SerializeField] private string host;
     [SerializeField] private string port;
 
-    public TMP_Text consumerMessage;
+    public GameObject myCube;
 
-    public GameObject myArm;
-    //public GameObject myCube;
+    public Material IKGood;
+    public Material IKBad;
 
     public Thread consumerThread;
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
@@ -54,9 +54,19 @@ public class Consumer : MonoBehaviour
 
     private void HandleMessage(string message)
     {
-        consumerMessage.text = message;
-        //Debug.Log(message);
-        myArm.GetComponent<ArmZMQ>().message = message;
+        //consumerMessage.text = message;
+        Debug.Log(message);
+        //myArm.GetComponent<ArmZMQ>().message = message;
+        // Change cube color
+        // 1 = IK has failed
+        if(message == "0")
+        {
+            myCube.GetComponent<MeshRenderer>().material = IKGood;
+        }
+        else if(message == "1")
+        {
+            myCube.GetComponent<MeshRenderer>().material = IKBad;
+        }
     }
 
     private void OnStartConsumer()
