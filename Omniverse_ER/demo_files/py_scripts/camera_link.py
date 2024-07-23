@@ -3,7 +3,7 @@ import zmq
 import base64
 import time
 import math
-from pymycobot.mycobot import MyCobot
+from pymycobot.myarm import MyArm 
 # Initialize the camera
 cap = cv2.VideoCapture(0)
 
@@ -12,12 +12,12 @@ context = zmq.Context()
 camera_socket = context.socket(zmq.PUB)
 camera_socket.bind("tcp://*:5555")
 
-command_socket = context.socket(zmq.SUB)
-command_socket.bind('tcp://*:5560')
-command_socket.subscribe('')
+#command_socket = context.socket(zmq.SUB)
+#command_socket.bind('tcp://*:5560')
+#command_socket.subscribe('')
 
 # Initialize the MyCobot
-mc = MyCobot('/dev/ttyTHS1', 1000000)
+mc = MyArm('/dev/ttyAMA0',115200)
 
 # Function to convert angles from radians to degrees
 def radians_to_degrees(radians):
@@ -44,6 +44,7 @@ def main():
                 break
 
             # Robot command to receive and execute
+            '''
             try:
                 # Wait for a message from the socket
                 message = command_socket.recv_multipart(zmq.NOBLOCK)
@@ -63,20 +64,19 @@ def main():
             except zmq.Again:
                 # No message received, continue looping
                 pass
-
+            '''
         except KeyboardInterrupt:
             # Handle the script being stopped by the user
             break
-        except ValueError as e:
-            # Handle any conversion errors
-            print(f"Error converting message: {e}")
-            continue
+        except zmq.ZMQError as e:
+            if e.errno == zmq.EAGAIN:
+                pass
 
     # Clean up the sockets and context
     cap.release()
     cv2.destroyAllWindows()
     camera_socket.close()
-    command_socket.close()
+    #command_socket.close()
     context.term()
 
 if __name__ == '__main__':
