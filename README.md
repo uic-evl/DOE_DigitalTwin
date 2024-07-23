@@ -46,11 +46,12 @@ To view our current progress, you can either reference the [open Issues](https:/
 Current Tasks:
 * Unity
   * Add RabbitMQ Networking
-  * Add Vicon tracking data and real arm position
+  * Build NetMQ for Linux
   * Improve VR Scene
 * Isaac Sim
   * Twin Create3
-  * Add sensors (such as cameras, Vicon trackers)
+  * Add camera stream
+  * ROS Bridge 
 * Unreal Engine 5
   * Develop VR User Interface
 
