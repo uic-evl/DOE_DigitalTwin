@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
 using UnityEngine;
 
 public class TransformLogger : MonoBehaviour
 {
-    private float currentTime;
+    private DateTime currentTime;
     private int frameNumber;
 
     public GameObject[] robotObjects;
@@ -12,20 +14,27 @@ public class TransformLogger : MonoBehaviour
     private Vector3[] positions;
     private Vector3[] rotations; 
 
+    private string data;
+
+    public string outfile;
+    public StreamWriter writer;
+
     void Start()
     {
         // Print initialization information
-        currentTime = Time.time;
+        currentTime = DateTime.Now;
         frameNumber = Time.frameCount;
 
         positions = new Vector3[robotObjects.Length];
         rotations = new Vector3[robotObjects.Length];
+
+        writer = new StreamWriter(outfile, true);
     }
 
     void Update()
     {
         // Print time, frame number
-        currentTime = Time.time;
+        currentTime = DateTime.Now;
         frameNumber = Time.frameCount;
 
         // Get position and orientation info
@@ -36,9 +45,22 @@ public class TransformLogger : MonoBehaviour
         }
 
         // Print 
-        Debug.Log("At " + currentTime.ToString() + " frame " + frameNumber.ToString() + " has for joint 6:" + positions[6].ToString() + " " + rotations[6].ToString());
+        //Debug.Log("At " + currentTime.ToString() + " frame " + frameNumber.ToString() + " has for joint 6:" + positions[6].ToString() + " " + rotations[6].ToString());
 
-        // Save to file
+        // Save to file as string
+        data = currentTime.ToString("yyyy-MM-dd HH:mm:ss.fff") + "," + frameNumber.ToString();
 
+        for(int i = 0; i < robotObjects.Length; i++)
+        {
+            string linkData = "," + positions[6].ToString() + "," + rotations[6].ToString();
+            data += linkData;
+        }
+
+        writer.WriteLine(data);
+    }
+
+    void OnDestroy()
+    {
+        writer.Close();
     }
 }
