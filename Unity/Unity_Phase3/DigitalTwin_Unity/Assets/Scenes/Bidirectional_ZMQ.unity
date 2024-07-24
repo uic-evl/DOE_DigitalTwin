@@ -14608,7 +14608,7 @@ MonoBehaviour:
   - {fileID: 302848965}
   - {fileID: 1118437746}
   - {fileID: 1442312575}
-  outfile: C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt\digital-twin/Unity/Unity_Phase3/DigitalTwin_Unity/Assets/LogFiles/outfile.txt
+  outfile: output2.txt
 --- !u!4 &2085120574
 Transform:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class TransformLogger : MonoBehaviour
         positions = new Vector3[robotObjects.Length];
         rotations = new Vector3[robotObjects.Length];
 
-        writer = new StreamWriter(outfile, true);
+        writer = new StreamWriter(basePath + outfile, true);
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class TransformLogger : MonoBehaviour
 
         for(int i = 0; i < robotObjects.Length; i++)
         {
-            string linkData = "," + positions[6].ToString() + "," + rotations[6].ToString();
+            string linkData = "," + positions[i].x.ToString("F5") + " " + positions[i].y.ToString("F5") + " " + positions[i].z.ToString("F5") + "," + rotations[i].x.ToString("F5") + " " + rotations[i].y.ToString("F5") + " " + rotations[i].z.ToString("F5");
             data += linkData;
         }
 
