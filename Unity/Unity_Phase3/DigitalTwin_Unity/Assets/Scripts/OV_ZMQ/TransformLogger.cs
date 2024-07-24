@@ -49,7 +49,7 @@ public class TransformLogger : MonoBehaviour
         //Debug.Log("At " + currentTime.ToString() + " frame " + frameNumber.ToString() + " has for joint 6:" + positions[6].ToString() + " " + rotations[6].ToString());
 
         // Save to file as string
-        data = currentTime.ToString("yyyy-MM-dd HH:mm:ss.fff") + "," + frameNumber.ToString();
+        data = currentTime.ToString("yyyy-MM-dd HH:mm:ss.ffffff") + "," + frameNumber.ToString();
 
         for(int i = 0; i < robotObjects.Length; i++)
         {
