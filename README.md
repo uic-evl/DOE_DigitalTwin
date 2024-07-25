@@ -1,6 +1,6 @@
 # EVL Digital Twin Efforts
 
-For more detailed documentation, please visit our [wiki!](https://github.com/uic-evl/digital-twin/wiki)
+For more detailed documentation and specific user guides, please visit our [wiki!](https://github.com/uic-evl/digital-twin/wiki)
 
 ## Overview
 
