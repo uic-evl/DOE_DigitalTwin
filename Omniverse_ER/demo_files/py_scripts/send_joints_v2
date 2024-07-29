@@ -1,5 +1,5 @@
 #
-# This file is to link messages from Omniverse to the robot
+# This file is send messages from Omniverse to the robot
 # Author: Athena Angara
 
 import time 
