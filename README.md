@@ -51,6 +51,7 @@ Current Tasks:
 * Test OVIS-only with mixed OS
 * Develop data processing/analysis pipeline
 * Research ROS IK simulation/calculation
+* Set up ssh on ER arm (if possible)
 
 ## Unity Sample Project 
 
