@@ -48,7 +48,9 @@ Current Tasks:
 * Test other networking libraries on Windows and Linux
   * Seek a solution to building NetMQ on Linux
 * Add Vicon tracking or Optitrack tracking to all working applications
-* Develop data processing/analysis pipeline   
+* Test OVIS-only with mixed OS
+* Develop data processing/analysis pipeline
+* Research ROS IK simulation/calculation
 
 ## Unity Sample Project 
 
