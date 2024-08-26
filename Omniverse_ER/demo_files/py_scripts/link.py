@@ -30,9 +30,8 @@ timet = int(1)
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
-
 # Bind the socket to a TCP port to listen for messages
-socket.connect('tcp://192.168.8.139:12346')
+socket.connect('tcp://127.0.0.1:12346') # UPDATE IP TO THE IP OF THE SIMULATION MACHINE
 
 # Subscribe to all incoming messages
 socket.subscribe('')
