@@ -1,3 +1,5 @@
+# This is a debugging script. You can comment out the "helloN" statements as needed. 
+# This will let you make sure teh ZMQ connection is working. 
 import zmq
 
 # Set up context and socket
