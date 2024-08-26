@@ -12,8 +12,7 @@ import os
 import math
 
 # Vicon SDK
-# If you have not already added the vicon_dssdk folder to your system path
-# run the line below.
+# If you have not already added the vicon_dssdk folder to your system path run the line below.
 # Once you have run this, you will not need to run it again.
 sys.path.insert(0, os.path.abspath('C:/Users/aangara/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/site-packages'))
 from vicon_dssdk import ViconDataStream
