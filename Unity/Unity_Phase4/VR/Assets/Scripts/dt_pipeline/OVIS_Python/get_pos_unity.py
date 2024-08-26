@@ -42,7 +42,7 @@ class TargetControl(BehaviorScript):
 
     def on_play(self):
         self.sock = self.context.socket(zmq.SUB)
-        self.sock.connect('tcp://130.202.141.60:12344')
+        self.sock.connect('tcp://127.0.0.1:12344') # UPDATE WITH UNITY MACHINE'S IP ADDRESS
         self.sock.subscribe('')
         logger.warn("ZMQ socket Set")
 

@@ -62,8 +62,6 @@ public class ArmZMQ : MonoBehaviour
     public void UpdateJoints(string message)
     {
         message = message.Replace("[", "").Replace("]", "");
-        //message = message.Substring(2, message.Length - 2);
-        //message = message.Substring(0, message.Length - 1);
         string[] data = message.Split(',');
 
         for(int i = 0; i < k_NumRobotJoints; i++)

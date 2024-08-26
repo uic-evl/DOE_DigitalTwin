@@ -33,7 +33,6 @@ class RobotControl(BehaviorScript):
         self.context = zmq.Context()
 
         self.sock = self.context.socket(zmq.PUB)
-        #self.sock.connect('tcp://130.202.141.68:5560') #FOR ER LINK
         self.sock.bind("tcp://*:12346") #FOR UNITY
 
         self.had_first_update = False

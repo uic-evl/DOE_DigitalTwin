@@ -1,3 +1,5 @@
+# ZMQ Sample Publisher
+
 import time
 import random
 import zmq

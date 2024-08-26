@@ -21,13 +21,15 @@ from pxr import (Gf, PhysxSchema, Sdf, Tf, Usd, UsdGeom, UsdLux, UsdPhysics,
 logger = logging.getLogger(__name__)
 commands = []
 
+PATH_BASE = Path("PATH/TO/PULLED/REPO")
+
 class CustomLogger(BehaviorScript):
     def on_init(self):
         logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
         self.frameNumber = 0
 
         # Open file stream
-        self.filestream = open("C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt/digital-twin/Unity/Unity_Phase3/DigitalTwin_Unity/Assets/LogFiles/omni_out.txt", "w", encoding="utf-8")
+        self.filestream = open(str(PATH_BASE) + "/Unity/Unity_Phase4/VR/Assets/LogFiles/omni_out.txt", "w", encoding="utf-8")
 
         # Testing initial pos extraction
         #stage = omni.usd.get_context().get_stage()

@@ -6,7 +6,7 @@ import omni.physx.scripts.utils as pxutils
 from omni.physx.scripts import physicsUtils
 from omni.isaac.dynamic_control import _dynamic_control
 from omni.kit.scripting import BehaviorScript
-from pxr import Gf, UsdGeom
+from pxr import (Gf, UsdGeom)
 import sys
 import os
 import math
@@ -22,9 +22,9 @@ from vicon_dssdk import ViconDataStream
 logger = logging.getLogger(__name__)
 commands = []
 
-class WristTargetControl(BehaviorScript):
+class ShoulderTargetControl(BehaviorScript):
     VICON_TRACKER_IP = ""
-    WRIST_OBJECT_NAME = "ER300_Wrist"
+    SHOULDER_OBJECT_NAME = "ER300_Shoulder"
 
     def on_init(self):
         logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
@@ -63,10 +63,10 @@ class WristTargetControl(BehaviorScript):
         logger.warn("Vicon tracker initialized")
 
     def on_stop(self):
-        follow_target = omni.usd.get_context().get_stage().GetPrimAtPath(str(self.prim_path))
+        follow_target = self.stage.GetPrimAtPath(str(self.prim_path))
         logger.info(f"{__class__.__name__}.on_stop()->{self.prim_path}")
         translation = Gf.Vec3d(0, 0, 0)
-        rotation = Gf.Vec3f(0, 0, 0)  # Assuming XYZ Euler angles
+        rotation = Gf.Vec3f(0, 0, 0)  #  XYZ Euler angles
         translate_op = follow_target.GetAttribute('xformOp:translate')
         translate_op.Set(Gf.Vec3f(translation))
 
@@ -112,15 +112,14 @@ class WristTargetControl(BehaviorScript):
                     logger.info("translation stuff: "+ str(v_translation))
                     logger.info("rotation stuff: " + str(v_rotation))
 
-                    # Track the wrist object (ViconCubeWrist)
-                    if subjectName == self.WRIST_OBJECT_NAME:
+                    # Track the shoulder object (ViconCubeShoulder)
+                    if subjectName == self.SHOULDER_OBJECT_NAME:
                         # Convert Vicon coordinates to Omniverse coordinates
-                        # Adjust the translation and rotation for vertical orientation
-                        translation = Gf.Vec3d(v_translation[0] * 0.001, v_translation[1] * 0.001, v_translation[2] * 0.001) - Gf.Vec3d(0.006, 0.005, 0.06)
+                        translation = Gf.Vec3d(v_translation[0] * 0.001, v_translation[1] * 0.001, v_translation[2] * 0.001) - Gf.Vec3d(0, 0, 0.06)
                         rotation = Gf.Vec3f(math.degrees(v_rotation[0]), math.degrees(v_rotation[1]), math.degrees(v_rotation[2]))  # Convert radians to degrees
 
-                        # Apply transformation to the ViconCubeWrist
-                        follow_target = omni.usd.get_context().get_stage().GetPrimAtPath(str(self.prim_path))
+                        # Apply transformation to the ViconCubeShoulder
+                        follow_target = self.stage.GetPrimAtPath(str(self.prim_path)) # + '/ViconCubeShoulder')
                         if follow_target:
                             # Apply translation
                             translate_op = follow_target.GetAttribute('xformOp:translate')

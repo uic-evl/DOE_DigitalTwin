@@ -30,12 +30,8 @@ class RobotControl(BehaviorScript):
         self.context = zmq.Context()
 
         self.sock = self.context.socket(zmq.PUB)
-        #self.sock.connect('tcp://130.202.141.68:5560') #FOR ER LINK
         self.sock.bind("tcp://*:12346") #FOR UNITY
 
-        #socket to pi in rpl tcp://146.137.240.73:5560
-        # defaultPrimPath = str(self.stage.GetDefaultPrim().GetPath())
-        # omni.usd.get_context().get_stage()
 
         self.had_first_update = False
 

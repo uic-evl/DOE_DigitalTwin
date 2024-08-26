@@ -1,3 +1,8 @@
+/**************************************
+TransformLogger Class
+Dumps a log file of the arm position
+**************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using System;
