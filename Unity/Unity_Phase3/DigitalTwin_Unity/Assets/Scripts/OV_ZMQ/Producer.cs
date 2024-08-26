@@ -17,11 +17,11 @@ public class Producer : MonoBehaviour
     public bool producerActive = false;
     public bool initSent = false;
 
-    //Host and port to bind socket to 
+    // Host and port to bind socket to 
     [SerializeField] private string host;
     [SerializeField] private string port;
 
-    //Timer
+    // Timer
     private float startTime;
     private float currentTime;
     private float endTime;
@@ -29,7 +29,7 @@ public class Producer : MonoBehaviour
 
     public bool isWait = false;
 
-    //public GameObject myArm;
+    // Public GameObject myArm;
     public GameObject myCube;
 
     public Transform RobotOrgin;
@@ -63,10 +63,10 @@ public class Producer : MonoBehaviour
 
             if(dataQueue.IsEmpty && isWait == false)//myCube.transform.hasChanged)
             {
-                //Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
+                // Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
                 Vector3 rotation = myCube.transform.rotation.eulerAngles;
 
-                //Debug.Log($"Enqueuing Position: {position}, Rotation: {rotation}");
+                // Debug.Log($"Enqueuing Position: {position}, Rotation: {rotation}");
 
                 dataQueue.Enqueue((myCube.transform.position, rotation));
 
