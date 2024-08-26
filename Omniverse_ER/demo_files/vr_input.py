@@ -1,7 +1,3 @@
-#this file will cover controlling the robot via target, in scene control panel, and cart as well as text box
-#7/19/23 - make sure that this script is attached to a prim or xform that has an articulation root. 
-#8/15/23 - target now changes color and returns to original when 
-
 import logging
 import math
 from pathlib import Path
@@ -38,8 +34,6 @@ except ModuleNotFoundError:
 # MOTION_GEN_ALGO = 'RMPFlow'
 MOTION_GEN_ALGO = 'IK'
 PATH_BASE = Path("C:\\Omniverse_Files")
-#PATH_BASE = Path(__file__).absolute().parent
-# PATH_BASE = Path('/home/vision/rpl_omniverse/')
 logger = logging.getLogger(__name__)
 
 class InspectorVariable(property):
@@ -139,12 +133,7 @@ class RobotControl(BehaviorScript):
             self.on_first_update(current_time, delta_time)
             logger.error("following Target @ path: " + str(self._prim_path))
             #self.ee_prim = self.stage.GetPrimAtPath(str(self.prim_path) + '/' + self.ee_name)
-        follow_target = self.stage.GetPrimAtPath(str(self.prim_path) + '/Target') # find where code locates ur5e and make a variable
-
-
-        #dplicate code for cart and edit paths accordingly, ok to hardcode
-        #look up what a quartarnium (GetQaut) is to understand math
-        # #restrict the z motion of follow target on the cart
+        follow_target = self.stage.GetPrimAtPath(str(self.prim_path) + '/Target')
 
         rot = get_world_rotation(follow_target)
         direction = rot.TransformDir(Gf.Vec3d(0, 0, 1))
@@ -189,9 +178,6 @@ class RobotControl(BehaviorScript):
                 #attr_color = prim_color.GetAttribute('inputs:diffuse_tint')
                 #attr_color.Set(Gf.Vec3f(2,0,0))
                 #logger.error('The target is RED because it is too far from the UR5e. Please move it back to bounds.')
-                # #the command above works atm for a different file, pahts not fixed
-                
-                #idk what this could  do? prolly dont need it
 
 def get_world_pose(prim: Usd.Prim) -> Tuple[np.ndarray, np.ndarray]:
     pos = get_world_translation(prim)
