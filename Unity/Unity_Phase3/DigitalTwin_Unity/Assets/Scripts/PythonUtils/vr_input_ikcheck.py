@@ -5,9 +5,7 @@ from pprint import pprint
 import time
 from typing import Tuple
 import os
-
 import omni.kit.commands
-
 import numpy as np
 import omni
 import omni.kit.pipapi
