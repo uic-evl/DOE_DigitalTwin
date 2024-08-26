@@ -1,6 +1,6 @@
 /**************************************
 ArmZMQ Class
-Recieve message from Consumer, then 
+Receive message from Consumer, then 
 parse out the joint angles and apply 
 the the URDF-based ArticulationBodies
 **************************************/
@@ -45,7 +45,7 @@ public class ArmZMQ : MonoBehaviour
         // Create array for articulation bodies of each joint
         m_JointArticulationBodies = new ArticulationBody[k_NumRobotJoints];
 
-        // Get the articulationbody for each joint
+        // Get the ArticulationBody for each joint
         var linkName = string.Empty;
         for (var i = 0; i < k_NumRobotJoints; i++)
         {
@@ -60,14 +60,9 @@ public class ArmZMQ : MonoBehaviour
     }
 
     // Update the joint angle by setting the
-    // xDrive.Target of each Articulationbody
+    // xDrive.Target of each ArticulationBody
     public void UpdateJointAngle(float cmd, int joint)
     {
-        //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
-        //if(joint == 0)
-        //{
-        //    cmd = cmd * -1.0f;
-        //}
         var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
         jointXDrive.target = angle;
@@ -77,8 +72,7 @@ public class ArmZMQ : MonoBehaviour
     public void UpdateJoints(string message)
     {
         message = message.Replace("[", "").Replace("]", "");
-        //message = message.Substring(2, message.Length - 2);
-        //message = message.Substring(0, message.Length - 1);
+
         string[] data = message.Split(",");
 
         for(int i = 0; i < k_NumRobotJoints; i++)

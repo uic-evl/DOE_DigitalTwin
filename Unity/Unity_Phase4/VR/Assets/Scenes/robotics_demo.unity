@@ -4422,7 +4422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497903876017178, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4329884720188682, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
       propertyPath: m_RootOrder
@@ -5623,7 +5623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 192.168.8.139
+  host: 192.168.1.195
   port: 12347
   myCube: {fileID: 1500027468}
   IKGood: {fileID: 2100000, guid: 91cb5f73131126546bb84212636b20e9, type: 2}
@@ -5899,7 +5899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &948209924
 Transform:
   m_ObjectHideFlags: 0
@@ -8302,7 +8302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 192.168.8.139
+  host: 192.168.1.195
   port: 12346
   consumerMessage: {fileID: 535272962}
   myArm: {fileID: 624757954}
@@ -8710,7 +8710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1243073915
 Transform:
   m_ObjectHideFlags: 0
@@ -9501,7 +9501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   producerActive: 0
   initSent: 0
-  host: 192.168.8.139
+  host: 192.168.1.195
   port: 12344
   myCube: {fileID: 1090162995}
   RobotOrgin: {fileID: 414664339}

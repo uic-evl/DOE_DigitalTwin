@@ -51,7 +51,7 @@ public class Producer : MonoBehaviour
             {
                 //dataQueue.Enqueue(Time.deltaTime);
                 Vector3 rotation = myCube.transform.rotation.eulerAngles;
-                dataQueue.Enqueue((myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition - ArmOrigin.localPosition, rotation));
+                dataQueue.Enqueue(((myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition - ArmOrigin.localPosition) * 100, rotation));
                 //dataQueue.Enqueue(myCube.transform.localPosition);
                 //Debug.Log("Hello from Enqueue");
                 //Debug.Log(myCube.transform.position - RobotOrgin.localPosition - TableOrigin.localPosition);
@@ -123,9 +123,9 @@ public class Producer : MonoBehaviour
                         // Create a multipart message
                         var message = new NetMQMessage();
                         message.Append("Position");
-                        message.Append(item.position.ToString("F5"));
+                        message.Append(item.position.ToString("F4"));
                         message.Append("Rotation");
-                        message.Append(item.rotation.ToString("F5"));
+                        message.Append(item.rotation.ToString("F4"));
 
                         // Send the multipart message
                         pubSocket.SendMultipartMessage(message);
