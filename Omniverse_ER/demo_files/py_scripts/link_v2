@@ -1,6 +1,7 @@
 #
 # This file is to recieve messages from Omniverse to the robot
-# Author: Athena Angara
+# with a time delay for prevent rapid commands
+# Authors: Athena Angara and Hal Brynteson
 #
 
 import time 
@@ -32,7 +33,7 @@ socket = context.socket(zmq.SUB)
 
 # Bind the socket to a TCP port to listen for messages
 # Address should match the machine with an Isaac Sim Publisher
-socket.connect('tcp://192.168.8.139:12346')
+socket.connect('tcp://127.0.0.1:12346') # UPDATE IP WITH IP OF SIMULATION MACHINE
 
 # Subscribe to all incoming messages
 socket.subscribe('')
