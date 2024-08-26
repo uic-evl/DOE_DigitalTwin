@@ -1,5 +1,3 @@
-# this script creates robot control class that takes information from behavior script. 
-
 import logging
 import math
 from pprint import pprint
@@ -33,9 +31,8 @@ class RobotControl(BehaviorScript):
         self.context = zmq.Context()
 
         self.sock = self.context.socket(zmq.PUB)
-        self.sock.connect('tcp://130.202.141.68:5560')
-
-        #socket to pi in rpl tcp://146.137.240.73:5560
+        self.sock.connect('tcp://127.0.0.1:5560') # UPDATE THIS IP ADDRESS IF NEEDED
+      
         # defaultPrimPath = str(self.stage.GetDefaultPrim().GetPath())
         # omni.usd.get_context().get_stage()
 
