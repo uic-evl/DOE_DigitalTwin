@@ -26,6 +26,7 @@ Hardware:
 * [Elephant Robotics MyArm 300 Pi](https://shop.elephantrobotics.com/products/myarm)
 * Windows 11 Machines:
    * Columbia (EVL)
+   * Endeavour (EVL)
    * Perserverance (ANL)
    * Curiosity (ANL)
    * Opportunity (ANL)
