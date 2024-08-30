@@ -21,7 +21,7 @@ from pxr import (Gf, PhysxSchema, Sdf, Tf, Usd, UsdGeom, UsdLux, UsdPhysics,
 logger = logging.getLogger(__name__)
 commands = []
 
-PATH_BASE = Path("PATH/TO/PULLED/REPO")
+PATH_BASE = Path("D:/Hal/DigitalTwin/DOE_DigitalTwin")
 
 class CustomLogger(BehaviorScript):
     def on_init(self):

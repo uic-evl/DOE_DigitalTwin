@@ -20,7 +20,6 @@ namespace UnityVicon
     private bool m_bHasCachedPose = false;
 
     public Vector3 offset;
-    public Vector3 rot_offset;
 
     public RBScript()
     {
@@ -51,14 +50,10 @@ namespace UnityVicon
         // right     -y     x
         // See https://gamedev.stackexchange.com/questions/157946/converting-a-quaternion-in-a-right-to-left-handed-coordinate-system
 
+        // The CAVE2 has manually flipped the coord position, it seems. 
+
         Root.localRotation = new Quaternion((float)ORot.Rotation[1], -(float)ORot.Rotation[2], -(float)ORot.Rotation[0], (float)ORot.Rotation[3]);
-        Root.localPosition = new Vector3(-(float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f, (float)OTran.Translation[0] * 0.001f) - offset;
-
-        Vector3 new_rot = Root.localRotation.eulerAngles;
-        new_rot += rot_offset;
-        Root.localRotation = Quaternion.Euler(new_rot);
-
-        Debug.Log(Root.localRotation);
+        Root.localPosition = new Vector3(-(float)OTran.Translation[0] * 0.001f, (float)OTran.Translation[1] * 0.001f, (float)OTran.Translation[2] * 0.001f)  + offset;
 
         m_LastGoodPosition = Root.localPosition;
         m_LastGoodRotation = Root.localRotation;

@@ -21,7 +21,7 @@ public class TransformLogger : MonoBehaviour
 
     private string data;
 
-    private string basePath = "C:/Users/halle/OneDrive/Documents/Hal/2024-vr-dt/digital-twin/Unity/Unity_Phase3/DigitalTwin_Unity/Assets/LogFiles/";
+    private string basePath = "D:/Hal/DigitalTwin/DOE_DigitalTwin/Unity/Unity_Phase3/DigitalTwin_Unity/Assets/LogFiles/";
     public string outfile;
     public StreamWriter writer;
 

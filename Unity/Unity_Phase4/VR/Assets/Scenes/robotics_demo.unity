@@ -4422,7 +4422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497903876017178, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4329884720188682, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
       propertyPath: m_RootOrder
@@ -4471,7 +4471,7 @@ PrefabInstance:
     - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e,
         type: 3}
       propertyPath: Log
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e,
         type: 3}
@@ -4481,7 +4481,17 @@ PrefabInstance:
     - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e,
         type: 3}
       propertyPath: HostName
-      value: 192.168.8.241
+      value: 131.193.183.207
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e,
+        type: 3}
+      propertyPath: SubjectFilter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105437160752742, guid: d221fcd7e2204224482131e4cc789b6e,
+        type: 3}
+      propertyPath: ConfigureWireless
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d221fcd7e2204224482131e4cc789b6e, type: 3}
@@ -5899,7 +5909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &948209924
 Transform:
   m_ObjectHideFlags: 0
@@ -5908,7 +5918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948209923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00039982796, y: 0, z: -0.00009918213}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 726857077}
@@ -5928,10 +5938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fead0a62ec76b479f2b95a6bab9234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: ER300_Wrist
+  ObjectName: DT_Wrist
   Client: {fileID: 1371909402}
-  offset: {x: -0.005, y: 0.06, z: 0.002}
-  rot_offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: -1, z: 0}
 --- !u!1 &978562855
 GameObject:
   m_ObjectHideFlags: 0
@@ -8741,8 +8750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: ER300_Shoulder
   Client: {fileID: 1371909402}
-  offset: {x: 0.002, y: 0, z: 0.003}
-  rot_offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1247334772
 PrefabInstance:
   m_ObjectHideFlags: 0
