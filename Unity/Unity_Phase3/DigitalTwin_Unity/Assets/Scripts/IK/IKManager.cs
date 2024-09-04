@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// IK Script and Implementation 
+// from : https://www.alanzucconi.com/2017/04/06/implementing-forward-kinematics/
+
 public class IKManager : MonoBehaviour
 {
     public RobotJoint[] Joints;
