@@ -5844,15 +5844,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 857059190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e718210aabf9b564a94bab5821e1ed05, type: 3}
+  m_Script: {fileID: 11500000, guid: 651df3d2bbaedea468d8f1cfac05070c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStartConsumer:
-    m_PersistentCalls:
-      m_Calls: []
-  onStopConsumer:
-    m_PersistentCalls:
-      m_Calls: []
   onStartProducer:
     m_PersistentCalls:
       m_Calls: []
@@ -8092,6 +8086,7 @@ MonoBehaviour:
   isWait: 0
   ik_manager: {fileID: 2029825962}
   angles_message: 
+  EventManagerIK: {fileID: 857059193}
 --- !u!1 &1441320875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3569061265504466902, guid: 47f784f1d7523c24b9c51fa7a8fbb2e8, type: 3}
@@ -10222,6 +10217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758880615}
+  - component: {fileID: 1758880616}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -10247,6 +10243,21 @@ Transform:
   - {fileID: 1610757857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758880616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758880614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019e3d16583952440a6178751c45ae5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startProducerButton: {fileID: 1812643687}
+  stopProducerButton: {fileID: 1871760938}
+  EventManagerIK: {fileID: 857059193}
 --- !u!1 &1786866595
 GameObject:
   m_ObjectHideFlags: 8
