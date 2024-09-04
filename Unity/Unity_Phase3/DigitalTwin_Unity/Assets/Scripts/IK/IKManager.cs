@@ -44,7 +44,7 @@ public class IKManager : MonoBehaviour
         }
 
         //Debug.Log(ForwardKinematics(angles));
-        Debug.Log(DistanceFromTarget(target, angles));
+        //Debug.Log(DistanceFromTarget(target, angles));
         //Debug.Log(angles);
 
         //Debug.Log(Joints[6].gameObject.transform.localPosition);

@@ -9,7 +9,7 @@ socket = context.socket(zmq.PUB)
 socket.bind("tcp://*:12344")
 time_interval = 1.0
 
-limit = 2
+limit = 100
 iter = 0
 
 while iter < limit:#True:
