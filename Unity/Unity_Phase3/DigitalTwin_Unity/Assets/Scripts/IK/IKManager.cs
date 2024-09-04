@@ -121,7 +121,7 @@ public class IKManager : MonoBehaviour
         if (DistanceFromTarget(target, angles) < DistanceThreshold)
             return;
 
-        for (int i = Joints.Length-1; i > 0; i--)
+        for (int i = Joints.Length-1; i >= 0; i--)
         {
             // Gradient descent
             // Update : Solution -= LearningRate * Gradient
