@@ -45,7 +45,6 @@ Hardware:
 To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
 
 Current Tasks:
-* Add Unity Physics-based IK to simulate bots without OVIS
 * Test other networking libraries on Windows and Linux
   * Seek a solution to building NetMQ on Linux
 * Add Vicon tracking or Optitrack tracking to all working applications
