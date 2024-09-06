@@ -11,11 +11,8 @@ As we develop this application, we will test across hardware, development, and s
 Software:
 * NVIDIA Omniverse (OV)
   * Isaac Sim (OVIS)
-* Unreal Engine 5
 * Unity
 * ROS2
-  * Create3: Humble
-  * ER Arms: Galactic 
 
 Hardware:
 * HMD
@@ -24,33 +21,28 @@ Hardware:
 * 2 [iRobot Create3](https://iroboteducation.github.io/create3_docs/) Roombas
 * [Elephant Robotics MyCobot 280 JN](https://www.elephantrobotics.com/en/mycobot-en/)
 * [Elephant Robotics MyArm 300 Pi](https://shop.elephantrobotics.com/products/myarm)
-* Windows 11 Machines:
-   * Columbia (EVL)
-   * Endeavour (EVL)
-   * Perserverance (ANL)
-   * Curiosity (ANL)
-   * Opportunity (ANL)
-   * Spirit (ANL)
-   * Sojourner (ANL)
-* Ubuntu Machines:
-   * Discovery (EVL) 
-   * Ingenuity (ANL) 
-* Raspberry Pi 2, 4, and 5
 * Sensors
-  * Vicon Cameras
-  * Luxonis Camera 
+  * IR Cameras
+  * Luxonis 3D Camera 
 
 ## Current Work
 
 To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
 
 Current Tasks:
-* Test other networking libraries on Windows and Linux
-  * Seek a solution to building NetMQ on Linux
-* Add Vicon tracking or Optitrack tracking to all working applications
-* Test OVIS-only with mixed OS
-* Develop data processing/analysis pipeline
-* Research ROS IK simulation/calculation
+* Networking:
+  * Build NetMQ for Linux
+  * Test RabbitMQ
+  * Measure latency and handle time sync
+* Sensors: 
+  * Set up arm tracking on Optitrack system
+  * Set up arm tracking on Vicon system
+  * Stream camera data
+* Data:
+  * Set up database
+  * Analyze data 
+* ROS:
+  * Test ROS-OVIS connection 
 
 ## Unity Sample Project 
 
