@@ -50,7 +50,7 @@ public class ProducerIK : MonoBehaviour
 
         for(int i = 0; i < angles.Length; i++)
         {
-            result += angles[i].ToString() + ", ";
+            result += angles[i].ToString("F3") + ", ";
         }
 
         return result;
