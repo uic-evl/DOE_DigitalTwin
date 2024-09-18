@@ -42,7 +42,7 @@ Current Tasks:
   * Set up database
   * Analyze data 
 * ROS:
-  * Test ROS-OVIS connection 
+  * Collect Data from OVIS-ROS Bridge control 
 
 ## Unity Sample Project 
 
