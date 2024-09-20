@@ -30,6 +30,10 @@ Hardware:
 To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
 
 Current Tasks:
+* Data (top priority):
+  * Collect performance and latency metrics across working configurations 
+  * Set up database
+  * Analyze data 
 * Networking:
   * Build NetMQ for Linux
   * Test RabbitMQ
@@ -38,9 +42,6 @@ Current Tasks:
   * Set up arm tracking on Optitrack system
   * Set up arm tracking on Vicon system
   * Stream camera data
-* Data:
-  * Set up database
-  * Analyze data 
 * ROS:
   * Collect Data from OVIS-ROS Bridge control 
 
