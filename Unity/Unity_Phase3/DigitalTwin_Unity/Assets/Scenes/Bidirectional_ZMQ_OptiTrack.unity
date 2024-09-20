@@ -4651,7 +4651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 10.0.0.147
+  host: 10.0.0.143
   port: 12346
   consumerMessage: {fileID: 40125171}
   myArm: {fileID: 162277980}
@@ -5063,10 +5063,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fetchData: {fileID: 66971279}
-  numObjects: 4
+  numObjects: 2
   objectOffset: 18
   idLookup: 
   objectList: []
+  trackedObjects:
+  - {fileID: 999016084}
+  - {fileID: 870037187}
+  - {fileID: 841213651}
 --- !u!1 &676135317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5496,7 +5500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &759580948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6363,7 +6367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &841213652
 Transform:
   m_ObjectHideFlags: 0
@@ -6395,6 +6399,8 @@ MonoBehaviour:
   dataHandler: {fileID: 583098998}
   myID: 22
   index: 0
+  offsetID: 21
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &857059190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6467,7 +6473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870037188
 Transform:
   m_ObjectHideFlags: 0
@@ -6499,6 +6505,8 @@ MonoBehaviour:
   dataHandler: {fileID: 583098998}
   myID: 20
   index: 0
+  offsetID: 21
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &877634241
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,7 +7061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &999016085
 Transform:
   m_ObjectHideFlags: 0
@@ -7085,6 +7093,8 @@ MonoBehaviour:
   dataHandler: {fileID: 583098998}
   myID: 21
   index: 0
+  offsetID: 21
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1029386622
 GameObject:
   m_ObjectHideFlags: 0
@@ -7881,7 +7891,7 @@ Transform:
   m_GameObject: {fileID: 1147718877}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10697,19 +10707,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10717,11 +10727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -7598975701235812817, guid: 4d3ac46026783ab40b760db8419504e1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14208,7 +14218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 10.0.0.147
+  host: 10.0.0.143
   port: 12347
   myCube: {fileID: 1832720053}
   IKGood: {fileID: 2100000, guid: ced1329ae879c7b4e85e63012019c9f6, type: 2}
@@ -15074,7 +15084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2085120573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15096,7 +15106,9 @@ MonoBehaviour:
   - {fileID: 302848965}
   - {fileID: 1118437746}
   - {fileID: 1442312575}
-  outfile: output_unity.txt
+  - {fileID: 870037187}
+  - {fileID: 999016084}
+  outfile: output_unity_optitrack_2.txt
 --- !u!4 &2085120574
 Transform:
   m_ObjectHideFlags: 0

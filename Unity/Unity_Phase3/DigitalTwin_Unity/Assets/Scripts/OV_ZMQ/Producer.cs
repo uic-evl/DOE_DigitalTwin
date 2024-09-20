@@ -137,12 +137,13 @@ public class Producer : MonoBehaviour
                         // Create a multipart message
                         var message = new NetMQMessage();
                         message.Append("Position");
-                        message.Append(item.position.ToString("F3"));
+                        message.Append(item.position.ToString("F5"));
                         message.Append("Rotation");
-                        message.Append(item.rotation.ToString("F3"));
+                        message.Append(item.rotation.ToString("F5"));
 
                         // Send the multipart message
                         pubSocket.SendMultipartMessage(message);
+                        //pubSocket.SendFrame("Hello from Unity");
                         //Debug.Log($"Sent Position: {item.position}, Rotation: {item.rotation}");
                     }
                     else
