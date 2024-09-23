@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 241}
+  m_AnchoredPosition: {x: 5, y: 80.999985}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40125171
@@ -2718,7 +2718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53.00006, y: 313.2}
+  m_AnchoredPosition: {x: -53.00006, y: 153.2}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &433433412 stripped
@@ -4586,6 +4586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533212717}
   - component: {fileID: 533212716}
+  - component: {fileID: 533212718}
   m_Layer: 0
   m_Name: Consumer
   m_TagString: Untagged
@@ -4600,13 +4601,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533212715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 494738974c5b3ed4cbefc5b9b71d3cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 10.0.0.147
+  host: 10.0.0.119
   port: 12346
   consumerMessage: {fileID: 40125171}
   myArm: {fileID: 162277980}
@@ -4625,6 +4626,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1481627154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533212718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533212715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d71fd814fb31e4408c7cad540efe11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueName: 
+  consumerActive: 0
+  host: 
+  port: 
+  myArm: {fileID: 162277980}
 --- !u!1 &558364640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,7 +5640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -53, y: 363}
+  m_AnchoredPosition: {x: -53, y: 203}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &790671784 stripped
@@ -7045,7 +7063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 279}
+  m_AnchoredPosition: {x: 6, y: 118.999985}
   m_SizeDelta: {x: 200, y: 18.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1088190172
@@ -7602,7 +7620,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147718877}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
@@ -8607,6 +8625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1423132609}
   - component: {fileID: 1423132608}
+  - component: {fileID: 1423132610}
   m_Layer: 0
   m_Name: Producer
   m_TagString: Untagged
@@ -8621,14 +8640,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423132607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94cce14b5ca8f78408a5865681d6cbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   producerActive: 0
   initSent: 0
-  host: 10.0.0.143
+  host: 10.0.0.119
   port: 12344
   delay: 0.1
   isWait: 0
@@ -8650,6 +8669,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1481627154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423132610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423132607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe3ba7b047260540b1d4f2602ad3fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueName: 
+  producerActive: 0
+  initSent: 0
+  host: 
+  port: 
+  delay: 0
+  isWait: 0
+  myCube: {fileID: 1147718877}
+  RobotOrgin: {fileID: 1922133355}
+  ArmOrigin: {fileID: 759580949}
 --- !u!1 &1441320875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3569061265504466902, guid: 47f784f1d7523c24b9c51fa7a8fbb2e8, type: 3}
@@ -9640,7 +9681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1457140079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9685,7 +9726,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 65
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
@@ -11280,7 +11321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.532013, y: 363.00006}
+  m_AnchoredPosition: {x: 63.532013, y: 203.00005}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812643687
@@ -12031,7 +12072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.53186, y: 313.20007}
+  m_AnchoredPosition: {x: 63.53186, y: 153.20006}
   m_SizeDelta: {x: 174.07, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871760938
@@ -13725,7 +13766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumerActive: 0
-  host: 10.0.0.147
+  host: 10.0.0.119
   port: 12347
   myCube: {fileID: 1832720053}
   IKGood: {fileID: 2100000, guid: ced1329ae879c7b4e85e63012019c9f6, type: 2}
@@ -14586,7 +14627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2085120573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14608,7 +14649,7 @@ MonoBehaviour:
   - {fileID: 302848965}
   - {fileID: 1118437746}
   - {fileID: 1442312575}
-  outfile: output_unity.txt
+  outfile: output.txt
 --- !u!4 &2085120574
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,3 @@
-/**************************************
-TransformLogger Class
-Dumps a log file of the arm position
-**************************************/
-
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -21,7 +16,7 @@ public class TransformLogger : MonoBehaviour
 
     private string data;
 
-    private string basePath = "D:/Hal/DigitalTwin/DOE_DigitalTwin/Unity/Unity_Phase3/DigitalTwin_Unity/Assets/LogFiles/";
+    private string basePath = "D:/Hema/";
     public string outfile;
     public StreamWriter writer;
 
@@ -51,7 +46,7 @@ public class TransformLogger : MonoBehaviour
         }
 
         // Print 
-        // Debug.Log("At " + currentTime.ToString() + " frame " + frameNumber.ToString() + " has for joint 6:" + positions[6].ToString() + " " + rotations[6].ToString());
+        //Debug.Log("At " + currentTime.ToString() + " frame " + frameNumber.ToString() + " has for joint 6:" + positions[6].ToString() + " " + rotations[6].ToString());
 
         // Save to file as string
         data = currentTime.ToString("yyyy-MM-dd HH:mm:ss.ffffff") + "," + frameNumber.ToString();

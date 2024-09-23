@@ -1,6 +1,6 @@
 /**************************************
 ArmZMQ Class
-Receive message from Consumer, then 
+Recieve message from Consumer, then 
 parse out the joint angles and apply 
 the the URDF-based ArticulationBodies
 **************************************/
@@ -12,6 +12,8 @@ using RosMessageTypes.Geometry;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Std;
 using RosMessageTypes.Sensor;
+using System;
+using System.IO;
 
 public class ArmZMQ : MonoBehaviour
 {
@@ -37,7 +39,7 @@ public class ArmZMQ : MonoBehaviour
     ArticulationBody[] m_JointArticulationBodies;
 
     public string message;
-
+    public SimpleLogger logger = new SimpleLogger("simplelog2.txt");
     void Start()
     {
         Debug.Log("Initializing");
@@ -45,7 +47,7 @@ public class ArmZMQ : MonoBehaviour
         // Create array for articulation bodies of each joint
         m_JointArticulationBodies = new ArticulationBody[k_NumRobotJoints];
 
-        // Get the ArticulationBody for each joint
+        // Get the articulationbody for each joint
         var linkName = string.Empty;
         for (var i = 0; i < k_NumRobotJoints; i++)
         {
@@ -56,13 +58,18 @@ public class ArmZMQ : MonoBehaviour
     void Update()
     {
         //Debug.Log(message);
-        UpdateJoints(message);
+      UpdateJoints(message);
     }
 
     // Update the joint angle by setting the
-    // xDrive.Target of each ArticulationBody
+    // xDrive.Target of each Articulationbody
     public void UpdateJointAngle(float cmd, int joint)
     {
+        //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
+        //if(joint == 0)
+        //{
+        //    cmd = cmd * -1.0f;
+        //}
         var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
         jointXDrive.target = angle;
@@ -71,16 +78,44 @@ public class ArmZMQ : MonoBehaviour
 
     public void UpdateJoints(string message)
     {
+        
         message = message.Replace("[", "").Replace("]", "");
-
+        //message = message.Substring(2, message.Length - 2);
+        //message = message.Substring(0, message.Length - 1);
         string[] data = message.Split(",");
-
+        string logData = "";
         for(int i = 0; i < k_NumRobotJoints; i++)
         {
             data[i] = data[i].Replace("'", "");
             data[i] = data[i].Replace("b", "");
-            //Debug.Log("Joint " + i.ToString() + " has " + data[i].ToString());
+            Debug.Log("Joint " + i.ToString() + " has " + data[i].ToString());
+            logData = logData+data[i].ToString() + ",";
             UpdateJointAngle(float.Parse(data[i]), i);
+        }
+        logger.Log(logData+ Environment.NewLine);
+
+
+
+    }
+
+
+
+
+
+    public class SimpleLogger
+    {
+        private readonly string _logFilePath;
+
+        public SimpleLogger(string logFilePath)
+        {
+            _logFilePath = logFilePath;
+        }
+
+        public void Log(string message)
+        {
+            var logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} {message}";
+            File.AppendAllText(_logFilePath, logMessage );
         }
     }
 }
+

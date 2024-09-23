@@ -1,5 +1,3 @@
-# ZMQ Sample Publisher
-
 import time
 import random
 import zmq
@@ -9,7 +7,7 @@ socket = context.socket(zmq.PUB)
 socket.bind("tcp://*:12344")
 time_interval = 1.0
 
-limit = 100
+limit = 2
 iter = 0
 
 while iter < limit:#True:

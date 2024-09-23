@@ -61,7 +61,7 @@ public class GripperZMQ : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(message);
+        //Debug.Log(message);
         UpdateJoints(message);
     }
 
@@ -69,7 +69,7 @@ public class GripperZMQ : MonoBehaviour
     // xDrive.Target of each Articulationbody
     public void UpdateJointAngle(float cmd, int joint)
     {
-        // Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
+        //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
         //if(joint == 0)
         //{
         //    cmd = cmd * -1.0f;

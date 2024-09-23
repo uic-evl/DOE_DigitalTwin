@@ -1,3 +1,7 @@
+#this file will cover controlling the robot via target, in scene control panel, and cart as well as text box
+#7/19/23 - make sure that this script is attached to a prim or xform that has an articulation root. 
+#8/15/23 - target now changes color and returns to original when 
+
 import logging
 import math
 from pathlib import Path
@@ -5,7 +9,9 @@ from pprint import pprint
 import time
 from typing import Tuple
 import os
+
 import omni.kit.commands
+
 import numpy as np
 import omni
 import omni.kit.pipapi
@@ -32,7 +38,8 @@ except ModuleNotFoundError:
 # MOTION_GEN_ALGO = 'RMPFlow'
 MOTION_GEN_ALGO = 'IK'
 PATH_BASE = Path("C:\\Omniverse_Files")
-
+#PATH_BASE = Path(__file__).absolute().parent
+# PATH_BASE = Path('/home/vision/rpl_omniverse/')
 logger = logging.getLogger(__name__)
 
 class InspectorVariable(property):
@@ -121,6 +128,7 @@ class RobotControl(BehaviorScript):
         self.had_first_update = True
 
         self.robot = Articulation(str(self.prim_path))
+        #get the articulation root from the prim I am attatched to. must be attatched to the articulation root
         self.robot.initialize()
 
         if MOTION_GEN_ALGO == 'RMPFlow':
@@ -134,7 +142,7 @@ class RobotControl(BehaviorScript):
             self.on_first_update(current_time, delta_time)
             logger.error("following Target @ path: " + str(self._prim_path))
             #self.ee_prim = self.stage.GetPrimAtPath(str(self.prim_path) + '/' + self.ee_name)
-        follow_target = self.stage.GetPrimAtPath(str(self.prim_path) + '/Target')
+        follow_target = self.stage.GetPrimAtPath(str(self.prim_path) + '/Target') # find where code locates ur5e and make a variable
 
         rot = get_world_rotation(follow_target)
         direction = rot.TransformDir(Gf.Vec3d(0, 0, 1))
