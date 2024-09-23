@@ -7,7 +7,7 @@ If you are creating a USD stage from scratch:
 4. On the Switch prim, add an attribute called "JWM:Switch_state" of type "Int"
 5. Create an "OmniPBR" material, and attatch it to Switch
 5. Add "End_effector_control.py" to the firefighter
-6. Add "EE_switch_controller.py"
+6. Add "EE_switch_controller.py" to Switch
 
 You should now see the gripper open and close as you move the cube along the positive and negative x axis. 
 
