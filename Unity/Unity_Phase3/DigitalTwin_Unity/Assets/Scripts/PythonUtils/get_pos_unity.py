@@ -49,7 +49,7 @@ class TargetControl(BehaviorScript):
 
     def on_play(self):
         self.sock = self.context.socket(zmq.SUB)
-        self.sock.connect('tcp://130.202.141.86:12344')
+        self.sock.connect('tcp://10.0.0.119:12344')
         self.sock.subscribe('')
         logger.warn("ZMQ socket Set")
 

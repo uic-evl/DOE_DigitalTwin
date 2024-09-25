@@ -34,7 +34,7 @@ public class GripperZMQ : MonoBehaviour
     };
 
     // Hardcoded variables
-    const int k_NumRobotJoints = 14;
+    const int k_NumRobotJoints = 13;
 
     [SerializeField]
     GameObject m_Arm;
@@ -69,11 +69,8 @@ public class GripperZMQ : MonoBehaviour
     // xDrive.Target of each Articulationbody
     public void UpdateJointAngle(float cmd, int joint)
     {
-        // Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
-        //if(joint == 0)
-        //{
-        //    cmd = cmd * -1.0f;
-        //}
+        //Debug.Log("Joint " + joint.ToString() + " has " + cmd.ToString());
+
         var angle = cmd * Mathf.Rad2Deg;
         var jointXDrive = m_JointArticulationBodies[joint].xDrive;
         jointXDrive.target = angle;
@@ -82,15 +79,20 @@ public class GripperZMQ : MonoBehaviour
 
     public void UpdateJoints(string message)
     {
-        message = message.Replace("[", "").Replace("]", "");
-        string[] data = message.Split(",");
-
-        for(int i = 0; i < k_NumRobotJoints; i++)
+        if(message.Length > 1)
         {
-            data[i] = data[i].Replace("'", "");
-            data[i] = data[i].Replace("b", "");
-            Debug.Log("Joint " + i.ToString() + " has " + data[i].ToString());
-            UpdateJointAngle(float.Parse(data[i]), i);
+            message = message.Substring(0, message.Length - 1);
+
+            message = message.Replace("[", "").Replace("]", "");
+            string[] data = message.Split(",");
+
+            for(int i = 0; i < k_NumRobotJoints; i++)
+            {
+                data[i] = data[i].Replace("'", "");
+                data[i] = data[i].Replace("b", "");
+                //Debug.Log("Joint " + i.ToString() + " has " + data[i].ToString());
+                UpdateJointAngle(float.Parse(data[i]), i);
+            }
         }
     }
 }

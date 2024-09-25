@@ -11,14 +11,14 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
-    indexCount: 36
+    indexCount: 48
     topology: 0
     baseVertex: 0
     firstVertex: 0
-    vertexCount: 8
+    vertexCount: 10
     localAABB:
-      m_Center: {x: 0.02676839, y: 0.029992132, z: -0.0031080944}
-      m_Extent: {x: 0.0005087843, y: 0.00045667775, z: 0.0009654537}
+      m_Center: {x: 0.009978293, y: 0.0072654756, z: -0.017086519}
+      m_Extent: {x: 0.0019208295, y: 0.0072017014, z: 0.0024005664}
   m_Shapes:
     vertices: []
     shapes: []
@@ -35,10 +35,10 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 040003000700010002000300020001000400010003000400020000000500030002000500000003000500000002000600040000000600020004000600030000000700000004000700
+  m_IndexBuffer: 000008000900020001000300010002000400030001000400000003000500030004000500000002000600020003000600030000000600020000000700040002000700040007000800000005000800050004000800070000000900080007000900
   m_VertexData:
     serializedVersion: 3
-    m_VertexCount: 8
+    m_VertexCount: 10
     m_Channels:
     - stream: 0
       offset: 0
@@ -96,8 +96,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 96
-    _typelessdata: 621ed73c56f4f13c667b85bb6174df3cc86ff93c8c6b0cbb621ed73cc86ff93c8c6b0cbb6174df3c56f4f13c8c6b0cbb6174df3cc86ff93c667b85bb621ed73c56f4f13c8c6b0cbb621ed73cc86ff93c667b85bb6174df3c56f4f13c667b85bb
+    m_DataSize: 120
+    _typelessdata: 7403043c6abe853861a39fbc8af4423cbd076d3c599d70bc8af4423cbd076d3c8ecf9ebc8af4423ce04dc039599d70bc0dc1143cbd076d3c599d70bc7056053ce04dc039599d70bc8af4423ce04dc0398ecf9ebc0dc1143cbd076d3c8ecf9ebc7056053c4eed503b599d70bc7056053c4eed503b8ecf9ebc
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -151,8 +151,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0.02676839, y: 0.029992132, z: -0.0031080944}
-    m_Extent: {x: 0.0005087843, y: 0.00045667775, z: 0.0009654537}
+    m_Center: {x: 0.009978293, y: 0.0072654756, z: -0.017086519}
+    m_Extent: {x: 0.0019208295, y: 0.0072017014, z: 0.0024005664}
   m_MeshUsageFlags: 0
   m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 

@@ -56,7 +56,7 @@ public class Consumer : MonoBehaviour
     {
         consumerMessage.text = message;
         // Debug.Log(message);
-        myArm.GetComponent<ArmZMQ>().message = message;
+        myArm.GetComponent<GripperZMQ>().message = message;
     }
 
     private void OnStartConsumer()
