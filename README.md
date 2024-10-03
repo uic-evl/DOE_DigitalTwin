@@ -50,13 +50,3 @@ Tasks:
   * Stream camera data
 * ROS:
   * Collect Data from OVIS-ROS Bridge control 
-
-## Unity Sample Project 
-
-There are three sample Unity projects. More detail about using these projects can be found [in the /Unity folder](https://github.com/uic-evl/digital-twin/blob/main/Unity/README.md), as well as in each project's README. 
-
-The [Unity Robotics Hub Repository](https://github.com/Unity-Technologies/Unity-Robotics-Hub) provides packages for Unity and ROS that allow users to setup a TCP connection between the two platforms. We have tested this and confirmed that their packages work to communicate between a Unity app and ROS2 on Windows 10, Ubuntu, and Win11/WSL. Instructions on how to set up a Unity project to exchange data with ROS can be found [on our wiki.](https://github.com/uic-evl/digital-twin/wiki/Connecting-Unity-to-ROS2-on-Ubuntu)
-
-## Isaac Sim and Unreal Engine 5 Sample Project 
-
-Isaac Sim is a robotics simulator within the NVIDIA Omniverse toolkit. We leverage the Omniverse-Unreal Connector to simulate the robot within Unreal Engine 5 in a Live Session. You can refer to [our guide](https://github.com/uic-evl/digital-twin/wiki/Simple-Digital-Twin-in-Omniverse-and-Unreal-Engine-5) on how to set this up with the Elephant Robotics arms (or, in theory, any arm with a URDF file). Necessary scripts can be found in [this repository.](https://github.com/uic-evl/digital-twin/tree/main/Omniverse_ER/demo_files)
