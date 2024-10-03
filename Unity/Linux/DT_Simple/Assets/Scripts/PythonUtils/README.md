@@ -1,0 +1,1 @@
+These python scripts will be used in an Isaac Sim USD stage. 
