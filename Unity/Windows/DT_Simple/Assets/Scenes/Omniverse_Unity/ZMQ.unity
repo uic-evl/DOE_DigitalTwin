@@ -4605,8 +4605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494738974c5b3ed4cbefc5b9b71d3cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gripperOn: 0
   consumerActive: 0
-  host: 10.0.0.147
+  host: 10.0.0.143
   port: 12346
   consumerMessage: {fileID: 40125171}
   myArm: {fileID: 162277980}

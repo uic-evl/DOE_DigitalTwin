@@ -17,6 +17,8 @@ using NetMQ.Sockets;
 
 public class Consumer : MonoBehaviour
 {
+    public bool gripperOn;
+
     public bool consumerActive = false;
     
     // Host and port to connect to 
@@ -56,7 +58,10 @@ public class Consumer : MonoBehaviour
     {
         consumerMessage.text = message;
         // Debug.Log(message);
-        myArm.GetComponent<GripperZMQ>().message = message;
+        if(gripperOn)
+            myArm.GetComponent<GripperZMQ>().message = message;
+        else  
+            myArm.GetComponent<ArmZMQ>().message = message; 
     }
 
     private void OnStartConsumer()

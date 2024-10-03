@@ -559,13 +559,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1125226693799346284, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
+      propertyPath: host
+      value: 10.0.0.143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125226693799346284, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
       propertyPath: myArm
       value: 
       objectReference: {fileID: 162277980}
     - target: {fileID: 1125226693799346284, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
+      propertyPath: gripperOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125226693799346284, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
       propertyPath: consumerMessage
       value: 
       objectReference: {fileID: 40125171}
+    - target: {fileID: 5574949631931764656, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
+      propertyPath: host
+      value: 10.0.0.143
+      objectReference: {fileID: 0}
     - target: {fileID: 5574949631931764656, guid: 82e060b25e709824c88b71c5148792a3, type: 3}
       propertyPath: myCube
       value: 
