@@ -7,13 +7,13 @@
   <link name="base">
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/base.dae"/>
+       <mesh filename="base.dae"/>
       </geometry>
       <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
     </visual>
     <collision>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/base.dae"/>
+       <mesh filename="base.dae"/>
         </geometry>
         <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
     </collision>
@@ -22,13 +22,13 @@
   <link name="joint1">
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j1.dae"/>
+       <mesh filename="j1.dae"/>
       </geometry>
       <origin xyz = "0.0 0 -0.085 " rpy = " 0 0 0"/>
     </visual>
     <collision>
      <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j1.dae"/>
+       <mesh filename="j1.dae"/>
       </geometry>
       <origin xyz = "0.0 0 -0.085 " rpy = " 0 0 0"/>
     </collision>
@@ -37,13 +37,13 @@
   <link name="joint2">
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j2.dae"/>
+       <mesh filename="j2.dae"/>
       </geometry>
     <origin xyz = "0.0 0 0.0 " rpy = " 3.14159 0 -1.5708 "/>
     </visual>
     <collision>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j2.dae"/>
+       <mesh filename="j2.dae"/>
       </geometry>
       <origin xyz = "0.0 0 0.0 " rpy = " 3.14159 0 -1.5708"/>
     </collision>
@@ -53,13 +53,13 @@
     <visual>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j3.dae"/>
+       <mesh filename="j3.dae"/>
       </geometry>
       <origin xyz = "0.0 0 -0.054 " rpy = " 0 0 0"/>
     </visual>
     <collision>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j3.dae"/>
+       <mesh filename="j3.dae"/>
       </geometry>
       <origin xyz = "0.0 0 -0.054" rpy = " 0 0 0"/>
     </collision>
@@ -69,13 +69,13 @@
   <link name="joint4">
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j4.dae"/>
+       <mesh filename="j4.dae"/>
       </geometry>
     <origin xyz = "0.0 0 0 " rpy = " 0 0 -1.5708"/>
     </visual>
     <collision>
        <geometry>
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j4.dae"/>
+       <mesh filename="j4.dae"/>
       </geometry>
       <origin xyz = "0.0 0 0 " rpy = " 0 0 -1.5708"/>
     </collision>
@@ -86,14 +86,14 @@
     <visual>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j5.dae"/>
+       <mesh filename="j5.dae"/>
       </geometry>
     <origin xyz = "0 0.00 -0.051 " rpy = " 0 0 3.14159"/>
     </visual>
     <collision>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j5.dae"/>
+       <mesh filename="j5.dae"/>
       </geometry>
     <origin xyz = "0 0.00 -0.051 " rpy = " 0 0 3.14159"/>
     </collision>
@@ -104,14 +104,14 @@
     <visual>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j6.dae"/>
+       <mesh filename="j6.dae"/>
       </geometry>
     <origin xyz = "0.0 0 -0.0 " rpy = " 0 0 -1.5708"/>
     </visual>
     <collision>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j6.dae"/>
+       <mesh filename="j6.dae"/>
       </geometry>
     <origin xyz = "0.0 0 -0.0 " rpy = " 0 0 -1.5708"/>
     </collision>
@@ -121,14 +121,14 @@
     <visual>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j7.dae"/>
+       <mesh filename="j7.dae"/>
       </geometry>
     <origin xyz = "0.0 0 -0.009 " rpy = " 0 0 -1.5708"/>
     </visual>
     <collision>
       <geometry>
        
-       <mesh filename="package://mycobot_description/urdf/myarm_300_pi/j7.dae"/>
+       <mesh filename="j7.dae"/>
       </geometry>
     <origin xyz = "0.0 0 -0.009 " rpy = " 0 0 -1.5708"/>
     </collision>

@@ -27,9 +27,15 @@ Hardware:
 
 ## Current Work
 
-To view our current progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
+ [[https://github.com/uic-evl/digital-twin/blob/restructure/wiki_images/diagram.png|alt=DT Architeture Diagram]]
 
-Current Tasks:
+ Our current approach to creating a digital twin is to consider the simulation environment, the user interface, and the hardware as three distinct entities that can communicate with each other. 
+
+## Ongoing Tasks
+
+To view our progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
+
+Tasks:
 * Data (top priority):
   * Collect performance and latency metrics across working configurations 
   * Set up database
