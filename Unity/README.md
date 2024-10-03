@@ -1,12 +1,12 @@
 # Unity Samples
 
-There are three Unity sample projects that demonstrate the digital twin capabilities of the Unity game engine. 
+We have a few Unity sample projects that demonstrate the digital twin capabilities of the Unity game engine. 
 
-The first, `Unity_Sample_Win10/DigitalTwin` uses the [Unity Robotics Hub](https://github.com/Unity-Technologies/Unity-Robotics-Hub) [ROS TCP Connection](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/ros_unity_integration/README.md) to publish and subscribe to ROS Topics from the Create3 roomba. 
+The first, `/Old_Projects/Unity_Sample_Win10/DigitalTwin` uses the [Unity Robotics Hub](https://github.com/Unity-Technologies/Unity-Robotics-Hub) [ROS TCP Connection](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/ros_unity_integration/README.md) to publish and subscribe to ROS Topics from the Create3 roomba. 
 
-`Unity_Phase3\DigitalTwin_Unity` demonstrates connecting a Unity application to Omniverse Isaac Sim or ROS for robot simulation with the Elepahnt Robotics arm. 
+`Windows/DT_Simple` demonstrates connecting a Unity application to Omniverse Isaac Sim or ROS for robot simulation with the Elepahnt Robotics arm. This project includes Omniverse-Unity scenes and Unity-Only scenes.
 
-`Unity_Phase4\VR` adapts the former project to include VR interactions using Unity's [XR Interaction Toolkit](https://github.com/Unity-Technologies/XR-Interaction-Toolkit-Examples/tree/classic/2.2) package. 
+`Windows/DT_VR/VR` adapts the former project to include VR interactions using Unity's [XR Interaction Toolkit](https://github.com/Unity-Technologies/XR-Interaction-Toolkit-Examples/tree/classic/2.2) package. 
 
 All of these projects require some level of outside system to work properly. Please navigate to the README of each project for more details on how to operate. 
 
