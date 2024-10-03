@@ -27,7 +27,7 @@ Hardware:
 
 ## Current Work
 
- [[https://github.com/uic-evl/digital-twin/blob/restructure/wiki_images/diagram.png|alt=DT Architeture Diagram]]
+![DT Architecture Diagram](https://github.com/uic-evl/DOE_DigitalTwin/blob/restructure/wiki_images/diagram.png)
 
  Our current approach to creating a digital twin is to consider the simulation environment, the user interface, and the hardware as three distinct entities that can communicate with each other. 
 
