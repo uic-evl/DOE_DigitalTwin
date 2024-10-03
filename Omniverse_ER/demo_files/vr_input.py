@@ -33,7 +33,7 @@ except ModuleNotFoundError:
 
 # MOTION_GEN_ALGO = 'RMPFlow'
 MOTION_GEN_ALGO = 'IK'
-PATH_BASE = Path("C:\\Omniverse_Files")
+PATH_BASE = Path("D:\\Hal\\DigitalTwin\\DOE_DigitalTwin\\Omniverse_ER\\demo_files")
 logger = logging.getLogger(__name__)
 
 class InspectorVariable(property):
@@ -90,10 +90,10 @@ class RobotControl(BehaviorScript):
             )
             logger.warn(f'RMPFlow loaded')
         elif MOTION_GEN_ALGO == 'IK':
-            logger.warn(str(PATH_BASE) + '/robot_data/myarm_300_pi/myarm_300_pi.urdf')
+            #logger.warn(str(PATH_BASE) + '/robot_data/myarm_300_pi/myarm_300_pi.urdf')
             self.motion_gen_algo = LulaKinematicsSolver(
-                robot_description_path=str(PATH_BASE) + '/robot_data/myarm_300_pi/rd_all_joints_2.yaml',
-                urdf_path=str(PATH_BASE) + '/robot_data/myarm_300_pi/myarm_300_pi.urdf',
+                robot_description_path=str(PATH_BASE) + '\\robot_data\\rd_myarm.yaml',
+                urdf_path="D:\\Hal\Omniverse_Files\\gripper_files\\my_arm300\\myarm_300_pi.urdf",
             )
             logger.warn('IK loaded')
         else:
