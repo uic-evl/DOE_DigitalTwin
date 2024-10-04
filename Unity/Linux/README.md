@@ -1,8 +1,8 @@
 # Unity Linux Projects
 
 DT_Simple: 
-    * OptiTrack Scenes
-    * Unity-Only Scenes
+* OptiTrack Scenes
+* Unity-Only Scenes
 
 In Progress:
 * VR will require a networking solution with a counterpart Windows application
