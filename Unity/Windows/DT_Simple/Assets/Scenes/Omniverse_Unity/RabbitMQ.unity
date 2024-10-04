@@ -4585,7 +4585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 533212717}
-  - component: {fileID: 533212716}
+  - component: {fileID: 533212718}
   m_Layer: 0
   m_Name: Consumer
   m_TagString: Untagged
@@ -4593,24 +4593,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &533212716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533212715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494738974c5b3ed4cbefc5b9b71d3cfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gripperOn: 0
-  consumerActive: 0
-  host: 10.0.0.143
-  port: 12346
-  consumerMessage: {fileID: 40125171}
-  myArm: {fileID: 162277980}
 --- !u!4 &533212717
 Transform:
   m_ObjectHideFlags: 0
@@ -4626,6 +4608,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1481627154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533212718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533212715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5003b3ab960646f47babccc2c328bc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueName: 
+  consumerActive: 0
+  host: 
+  port: 
+  myArm: {fileID: 162277980}
 --- !u!1 &558364640
 GameObject:
   m_ObjectHideFlags: 0
@@ -8607,7 +8606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423132609}
-  - component: {fileID: 1423132608}
+  - component: {fileID: 1423132610}
   m_Layer: 0
   m_Name: Producer
   m_TagString: Untagged
@@ -8615,27 +8614,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1423132608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423132607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94cce14b5ca8f78408a5865681d6cbfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  producerActive: 0
-  initSent: 0
-  host: 10.0.0.143
-  port: 12344
-  delay: 0.1
-  isWait: 0
-  myCube: {fileID: 1147718877}
-  RobotOrgin: {fileID: 1922133355}
-  ArmOrigin: {fileID: 759580949}
 --- !u!4 &1423132609
 Transform:
   m_ObjectHideFlags: 0
@@ -8651,6 +8629,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1481627154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423132610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423132607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529b217fb279e9242baf8d7fdef7fc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueName: 
+  producerActive: 0
+  initSent: 0
+  host: 
+  port: 
+  delay: 0
+  isWait: 0
+  myCube: {fileID: 1147718877}
+  RobotOrgin: {fileID: 1922133355}
+  ArmOrigin: {fileID: 759580949}
 --- !u!1 &1441320875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3569061265504466902, guid: 47f784f1d7523c24b9c51fa7a8fbb2e8, type: 3}
@@ -14158,7 +14158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2014807137
 MonoBehaviour:
   m_ObjectHideFlags: 0
