@@ -4305,6 +4305,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geometryType: 3
+--- !u!4 &595603777 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1670256625, guid: ecdbf3dc6204e7a46943712ecfb94c12,
+    type: 3}
+  m_PrefabInstance: {fileID: 6232745470614056081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &614990237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4954,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1930235708268305994, guid: cd604fb8ddbeadb489f5bbe4b2231469,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_RootOrder
@@ -4956,17 +4967,17 @@ PrefabInstance:
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72713065
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.648
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
@@ -5008,6 +5019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IK_Light_R
       objectReference: {fileID: 0}
+    - target: {fileID: 7254068195146280570, guid: cd604fb8ddbeadb489f5bbe4b2231469,
+        type: 3}
+      propertyPath: parentController
+      value: 
+      objectReference: {fileID: 595603777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd604fb8ddbeadb489f5bbe4b2231469, type: 3}
 --- !u!1 &862122496 stripped
@@ -9116,6 +9132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46398bc5d6905ad429a6d2d973afe002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1529689377 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 202364688, guid: ecdbf3dc6204e7a46943712ecfb94c12,
+    type: 3}
+  m_PrefabInstance: {fileID: 6232745470614056081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557099505
 GameObject:
   m_ObjectHideFlags: 0
@@ -14833,6 +14855,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1930235708268305994, guid: cd604fb8ddbeadb489f5bbe4b2231469,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_RootOrder
@@ -14841,17 +14868,17 @@ PrefabInstance:
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10519752
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1234641
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.6560185
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2572559527792873400, guid: cd604fb8ddbeadb489f5bbe4b2231469,
         type: 3}
@@ -14893,6 +14920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IK_Light_L
       objectReference: {fileID: 0}
+    - target: {fileID: 7254068195146280570, guid: cd604fb8ddbeadb489f5bbe4b2231469,
+        type: 3}
+      propertyPath: parentController
+      value: 
+      objectReference: {fileID: 1529689377}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd604fb8ddbeadb489f5bbe4b2231469, type: 3}
 --- !u!1 &8231441219508883850 stripped
