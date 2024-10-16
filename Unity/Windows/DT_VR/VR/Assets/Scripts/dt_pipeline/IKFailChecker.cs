@@ -24,6 +24,7 @@ public class IKFailChecker : MonoBehaviour
     [SerializeField] private string port;
 
     public GameObject myCube;
+    public GameObject[] feedback;
 
     public Material IKGood;
     public Material IKBad;
@@ -54,18 +55,25 @@ public class IKFailChecker : MonoBehaviour
 
     private void HandleMessage(string message)
     {
-        //consumerMessage.text = message;
-        Debug.Log(message);
-        //myArm.GetComponent<ArmZMQ>().message = message;
         // Change cube color
         // 1 = IK has failed
         if(message == "0")
         {
             myCube.GetComponent<MeshRenderer>().material = IKGood;
+
+            for(int i = 0; i < feedback.Length; i++)
+            {
+                feedback[i].GetComponent<MeshRenderer>().material = IKGood;
+            }
         }
         else if(message == "1")
         {
             myCube.GetComponent<MeshRenderer>().material = IKBad;
+
+            for(int i = 0; i < feedback.Length; i++)
+            {
+                feedback[i].GetComponent<MeshRenderer>().material = IKBad;
+            }
         }
     }
 

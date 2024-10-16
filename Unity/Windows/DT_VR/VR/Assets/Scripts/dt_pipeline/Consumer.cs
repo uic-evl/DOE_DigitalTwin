@@ -17,16 +17,18 @@ using NetMQ.Sockets;
 
 public class Consumer : MonoBehaviour
 {
+    public bool gripperOn;
+
     public bool consumerActive = false;
     
-    //Host and port to connect to 
+    // Host and port to connect to 
     [SerializeField] private string host;
     [SerializeField] private string port;
 
     public TMP_Text consumerMessage;
 
     public GameObject myArm;
-    //public GameObject myCube;
+    // Public GameObject myCube;
 
     public Thread consumerThread;
     public ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
@@ -55,8 +57,11 @@ public class Consumer : MonoBehaviour
     private void HandleMessage(string message)
     {
         consumerMessage.text = message;
-        //Debug.Log(message);
-        myArm.GetComponent<ArmZMQ>().message = message;
+        // Debug.Log(message);
+        if(gripperOn)
+            myArm.GetComponent<GripperZMQ>().message = message;
+        else  
+            myArm.GetComponent<ArmZMQ>().message = message; 
     }
 
     private void OnStartConsumer()

@@ -33,16 +33,17 @@ Email:jameswm@iastate.edu
 
 '''
 #any paths that are worth editing are here. Script should generate and bind materials as needed
-PATH_BASE = Path("C:/Omniverse_Files/robot_data/MyArm300pi_EE_test3.usd") #absolute usd path
-mesh_path =("/World/firefighter/Switch")#path base is for usd 
+PATH_BASE = Path("C:/Users/halle/Documents/DigitalTwin/gripper_stage.usd") #absolute usd path
+switch_path =("/World/firefighter/Switch")
+mesh_path =("/World/firefighter/Switch")
 material_path = "/World/Looks/OmniPBR"#path to material for color change 
 state_name = "JWM:Switch_state"#state of the switch
-
 
 class SwitchControl(BehaviorScript):
     def on_init(self):
         logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
         self.update_subscription = False
+        self.prev_state = 0
 
     def on_pause(self):
         logger.warn("SwitchController Pause")
@@ -73,33 +74,39 @@ class SwitchControl(BehaviorScript):
     def on_update(self, current_time: float, delta_time: float):
         self.option_select()
 
-
     def option_select(self):    
         stage = omni.usd.get_context().get_stage()
         self.curr_prim = stage.GetPrimAtPath(self.prim_path)
         pose = omni.usd.get_world_transform_matrix(self.curr_prim)
         x,y,z = pose.ExtractTranslation()
         switch_attr: Usd.Attribute = self.curr_prim.GetAttribute(state_name)
-        
-        if  y > .2 and -.1< x < .1: # option 3, release
+        send_attr: Usd.Attribute = self.curr_prim.GetAttribute("toSend")
+
+        if  y > .2 and x == 0: # option 3, release
             #logger.warn("The gripper will release")
             switch_attr.Set(3)
             assign_material_color(self,'green',__class__.__name__ )
 
-        elif -.1< x < .1: # option 0, do nothing
+        elif x == 0: # option 0, do nothing
             #logger.warn("The gripper will do nothing")
-            switch_attr.Set(0)
+            switch_attr.Set(2)
             assign_material_color(self,'grey',__class__.__name__ )
 
-        elif -.1 > x:# option 1, open
+        elif x > 0:# option 1, open
             #logger.warn("The gripper will Open")
-            switch_attr.Set(1)
+            switch_attr.Set(0)
             assign_material_color(self,'blue',__class__.__name__ )
 
-        elif .1 < x:# option 2, close
+        elif x < 0:# option 2, close
             #logger.warn("The gripper will Close")
-            switch_attr.Set(2)
+            switch_attr.Set(1)
             assign_material_color(self,'red',__class__.__name__ )
+
+        # New state, so we send
+        if self.prev_state != switch_attr.Get():
+            send_attr.Set(True)
+
+        self.prev_state = switch_attr.Get()
 
 
     def switch_attr_check(self):
@@ -132,9 +139,6 @@ class SwitchControl(BehaviorScript):
         
     def on_destroy(self):
         logger.warn(f"{__class__.__name__}.on_destroy()->{self.prim_path}")
-
-
-   
 
 def get_attribute_value(prim: Usd.Prim, attribute_name: str):
     """

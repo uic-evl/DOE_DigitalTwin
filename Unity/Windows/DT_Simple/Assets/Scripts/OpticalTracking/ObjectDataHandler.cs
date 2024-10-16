@@ -49,7 +49,7 @@ public class ObjectDataHandler : MonoBehaviour
                 objectList[i].orw = float.Parse(data[10 + myOffset].Split(":")[1]);
                 objectList[i].orx = float.Parse(data[11 + myOffset].Split(":")[1]);
                 objectList[i].ory = float.Parse(data[12 + myOffset].Split(":")[1]);
-                objectList[i].orz = float.Parse(data[12 + myOffset].Split(":")[1]);
+                objectList[i].orz = float.Parse(data[13 + myOffset].Split(":")[1]);
             }
             
             if(!trackedObjects[0].activeSelf)
