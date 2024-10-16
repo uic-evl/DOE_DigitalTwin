@@ -33,20 +33,16 @@ Hardware:
 
 ## Ongoing Tasks
 
-To view our progress, you can either reference the [open Issues](https://github.com/uic-evl/digital-twin/issues) or our [Experiments Tracker](https://github.com/uic-evl/digital-twin/wiki/Experiments).
+To view our progress, you can reference the [open Issues](https://github.com/uic-evl/digital-twin/issues).
 
 Tasks:
-* Data (top priority):
-  * Collect performance and latency metrics across working configurations 
-  * Set up database
-  * Analyze data 
-* Networking:
-  * Build NetMQ for Linux
-  * Test RabbitMQ
-  * Measure latency and handle time sync
-* Sensors: 
-  * Set up arm tracking on Optitrack system
-  * Set up arm tracking on Vicon system
-  * Stream camera data
-* ROS:
-  * Collect Data from OVIS-ROS Bridge control 
+* Networking
+  * Literature review of other networking solutions
+  * Document ZMQ vs. RabbitMQ configurations
+* Data
+  * Analyze and visualize accuracy data
+* Arm Control
+  * Investigate gripper control issue
+* VR
+  * Figure out new VR Input system in Unity       
+
