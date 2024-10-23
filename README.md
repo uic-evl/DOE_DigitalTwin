@@ -4,4 +4,7 @@ For our updated projects, please see the [restructure branch](https://github.com
 
 Contact us for questions:
 * Hal: hbrynt2@uic.edu
+* Hema: hnign4@uic.edu
+* Athena: aanga3@uic.edu
+* Fatima: fjass2@uic.edu 
 
