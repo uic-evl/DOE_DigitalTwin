@@ -76,7 +76,7 @@ class RobotControl(BehaviorScript):
         self.had_first_update = False
 
 
-        self.ee_name = 'joint7'
+        self.ee_name = 'joint5'
         self.ee_prim = self.stage.GetPrimAtPath(str(self.prim_path) + '/' + self.ee_name)
         logger.error("---ee_name: "+ str(self.ee_name) + " ee_prim: " + str(self.ee_prim))
 
