@@ -40,6 +40,9 @@ class TargetControl(BehaviorScript):
         trans = pose.ExtractTranslation()
         #logger.warn(trans)
 
+        # Set gripper offset
+        self.grip_offset = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("grip_offset").Get()
+
         # ZMQ Networking for Target Subscriber
         self.target_ip = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("target_ip").Get()
         self.target_port = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("target_port").Get()
@@ -84,9 +87,11 @@ class TargetControl(BehaviorScript):
             y = float(xform_data[1])
             z = float(xform_data[2]) 
 
-            rx = float(xform_data[3]) 
+            rx = float(xform_data[3]) + 180
             ry = float(xform_data[4]) * -1.0
             rz = float(xform_data[5]) * -1.0
+
+            y = y + self.grip_offset[2]
 
             physicsUtils.set_or_add_translate_op(self.curr_prim, (z,x,y))
 

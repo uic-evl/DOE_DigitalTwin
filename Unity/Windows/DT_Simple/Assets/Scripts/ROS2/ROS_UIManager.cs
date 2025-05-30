@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ROS_UIManager : MonoBehaviour
 {
-    public ArmSubscriber subscriber;
+    public ROSSubscriberIMG subscriber;
     public ArmPublisher publisher;
 
     public void startSub()

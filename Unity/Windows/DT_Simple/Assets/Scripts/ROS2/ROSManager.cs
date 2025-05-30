@@ -7,7 +7,7 @@ public class ROSManager : MonoBehaviour
 {
     public ROSConnection ros_con;
 
-    public ArmSubscriber sub;
+    public ROSSubscriberIMG sub;
     public ArmPublisher pub;
 
     void Start()
