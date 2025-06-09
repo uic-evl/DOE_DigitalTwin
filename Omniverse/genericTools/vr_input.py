@@ -97,9 +97,11 @@ class RobotControl(BehaviorScript):
         # Get Target Material and colors
         # This assumes a Target Material at the below path,
         # and assumes "ik_good" and "ik_bad" attributes have been added
-        self.target_mat = self.stage.GetPrimAtPath("/World/Looks/Target_Mat/Shader").GetAttribute("inputs:diffuse_color_constant")
-        self.ik_good = self.stage.GetPrimAtPath("/World/Looks/Target_Mat").GetAttribute("ik_good")
-        self.ik_bad = self.stage.GetPrimAtPath("/World/Looks/Target_Mat").GetAttribute("ik_bad")
+        self.mat_name = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("mat_name").Get()
+
+        self.target_mat = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name) + "/Shader").GetAttribute("inputs:diffuse_color_constant")
+        self.ik_good = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name)).GetAttribute("ik_good")
+        self.ik_bad = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name)).GetAttribute("ik_bad")
 
         if MOTION_GEN_ALGO == 'IK':
             self.motion_gen_algo = LulaKinematicsSolver(

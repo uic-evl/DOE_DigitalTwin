@@ -6,7 +6,7 @@ import zmq
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
-socket.connect('tcp://10.0.0.239:12349')
+socket.connect('tcp://140.221.17.45:12325')
 socket.subscribe('')
 time_interval = 0.01
 

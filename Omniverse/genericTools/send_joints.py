@@ -71,10 +71,14 @@ class RobotControl(BehaviorScript):
         
         # Get joint positions from the robot
         joints = self.robot.get_joint_positions()
+
+        # Ignore gripper joints (for now)
+        #logger.warn(self.robot.dof_names)
+        #joints = joints[:7]
         
         # Convert joint positions to strings and then to a single string
         joints_str = str([str(j) for j in joints])
-        
+
         # Send joint positions as a single string
         try:
             self.sock.send_string(joints_str)
