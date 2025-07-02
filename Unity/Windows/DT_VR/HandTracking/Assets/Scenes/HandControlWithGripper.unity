@@ -5479,7 +5479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152938742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -5522,18 +5522,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 152938746}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -5550,42 +5538,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 152938742}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 152938746}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11913,18 +11865,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 383403288}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -11946,42 +11886,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 383403283}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 383403288}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -11998,7 +11902,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383403283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -31611,18 +31515,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 919580250}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -31644,42 +31536,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 919580245}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 919580250}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -31696,7 +31552,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919580245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -37591,18 +37447,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1113169454}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -37624,42 +37468,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1113169449}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1113169454}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -37676,7 +37484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113169449}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -42500,7 +42308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249158660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -42543,18 +42351,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1249158664}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -42571,42 +42367,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1249158660}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1249158664}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -48813,7 +48573,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3374951917399667740}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187072069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bec2f761a2f42a24d9ecb7b5ad7d79e2, type: 3}
   m_Name: 
@@ -48824,7 +48584,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3374951917399667740}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187072069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28eca753ea95da147b39932278795aa5, type: 3}
   m_Name: 
@@ -48841,7 +48601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187072069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b216ca5341b4a134dbcfeb3657d979fb, type: 3}
   m_Name: 
@@ -48849,17 +48609,6 @@ MonoBehaviour:
   openGripper: {fileID: 432355292}
   closedGripper: {fileID: 520372822}
   isOpen: 1
---- !u!114 &1528068629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 460999944754670277, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
-  m_PrefabInstance: {fileID: 3374951917399667740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187072069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c528215570021434cb4294fab6c113df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1529101739
 GameObject:
   m_ObjectHideFlags: 0
@@ -52562,18 +52311,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1694091987}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -52595,42 +52332,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1694091982}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1694091987}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -52647,7 +52348,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694091982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -59600,7 +59301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1948461012
 Transform:
   m_ObjectHideFlags: 0
@@ -65408,7 +65109,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2458052866430097492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
@@ -65451,18 +65152,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: KillGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2458052866430097496}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -65479,42 +65168,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: setJointID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: SpawnGrab
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2458052866430097492}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1528068629}
-        m_TargetAssemblyTypeName: CreateGrabPoint, Assembly-CSharp
-        m_MethodName: AdjustGrabbable
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2458052866430097496}
-          m_ObjectArgumentAssemblyTypeName: Oculus.Interaction.Grabbable, Oculus.Interaction
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -65726,7 +65379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460999944754670277, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 460999944754670277, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: GrabbablePoint
@@ -65813,6 +65466,10 @@ PrefabInstance:
       value: 10.0.0.239
       objectReference: {fileID: 0}
     - target: {fileID: 1575901097812155384, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575901097812155384, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: gripperController
       value: 
       objectReference: {fileID: 1528068628}
@@ -65890,7 +65547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3931333519271647517, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944606605489048516, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: m_Mass
@@ -65939,6 +65596,10 @@ PrefabInstance:
     - target: {fileID: 6288573324920247853, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: m_ConnectedBody
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383867019273191791, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6454031684631060192, guid: 86bd2097c42eed64cac7b2c602bbe0e3, type: 3}
       propertyPath: m_Spring.damper

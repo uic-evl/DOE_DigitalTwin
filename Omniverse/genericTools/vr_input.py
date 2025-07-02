@@ -171,6 +171,7 @@ class RobotControl(BehaviorScript):
 
             else:
                 #logger.warn(f'{self.prim_path} - IK failed')
+                #self.robot.apply_action(action)
                 self.target_mat.Set(self.ik_bad.Get())
                 try:
                     self.sock.send_string("1")
