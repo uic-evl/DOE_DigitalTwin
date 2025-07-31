@@ -23,7 +23,8 @@ Hardware:
 * [Elephant Robotics MyArm 300 Pi](https://shop.elephantrobotics.com/products/myarm)
 * Sensors
   * IR Cameras
-  * Luxonis 3D Camera 
+  * Luxonis 3D Camera
+  * Intel RealSense D455
 
 ## Current Work
 
@@ -36,13 +37,9 @@ Hardware:
 To view our progress, you can reference the [open Issues](https://github.com/uic-evl/digital-twin/issues).
 
 Tasks:
-* Networking
-  * Literature review of other networking solutions
-  * Document ZMQ vs. RabbitMQ configurations
-* Data
-  * Analyze and visualize accuracy data
-* Arm Control
-  * Investigate gripper control issue
-* VR
-  * Figure out new VR Input system in Unity       
-
+* Issac Lab (Gymnasium)
+  * See [HotCellGym branch](https://github.com/uic-evl/DOE_DigitalTwin/tree/Isaac-Lab-Hotcell-Environment)
+* Unity
+  * Create unified Unity UI of all interaction types
+* Scene Generation
+  * Integrate multi-RealSense scene sensing     
