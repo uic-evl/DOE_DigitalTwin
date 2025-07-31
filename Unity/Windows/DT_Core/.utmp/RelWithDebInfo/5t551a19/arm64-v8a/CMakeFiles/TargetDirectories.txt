@@ -1,0 +1,5 @@
+C:/Users/halle/Documents/Summer25/Unity/DT_Core/.utmp/RelWithDebInfo/5t551a19/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/halle/Documents/Summer25/Unity/DT_Core/.utmp/RelWithDebInfo/5t551a19/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/halle/Documents/Summer25/Unity/DT_Core/.utmp/RelWithDebInfo/5t551a19/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/halle/Documents/Summer25/Unity/DT_Core/.utmp/RelWithDebInfo/5t551a19/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/halle/Documents/Summer25/Unity/DT_Core/.utmp/RelWithDebInfo/5t551a19/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

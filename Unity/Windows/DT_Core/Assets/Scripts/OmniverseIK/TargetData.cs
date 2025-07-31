@@ -27,7 +27,9 @@ public class TargetData : MonoBehaviour, IDataProducer
     void Update()
     {
         Vector3 position = myCube.transform.position - RobotOrgin.localPosition - ArmOrigin.localPosition;
-        Vector3 rotation = myCube.transform.rotation.eulerAngles;
+        Vector3 rotation = myCube.transform.eulerAngles;
+
+        //Debug.Log(myCube.transform.localEulerAngles);
 
         //messageToSend = myCube.transform.position.ToString("F5") + "," + rotation.ToString("F5");
         messageToSend = position.ToString("F5") + "," + rotation.ToString("F5");

@@ -984,6 +984,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TrackHandChange",
+                    "type": "Button",
+                    "id": "76bd11b0-21ed-41ff-b121-d81a1591a13e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1303,6 +1312,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Gripper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1cddab9-0457-4952-bf24-2a09d8384712",
+                    "path": "<QuestProTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrackHandChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -2097,6 +2117,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TrackHandChange",
+                    "type": "Button",
+                    "id": "28b3d9a3-e8b2-46a0-a259-492fa852f0c2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2163,6 +2192,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "694e0e0b-d511-4eb8-b1ba-ce4c1b4b6299",
+                    "path": "<QuestProTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrackHandChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

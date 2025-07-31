@@ -22,19 +22,20 @@ public class ArmControllerOmniverseZMQ : MonoBehaviour
 
     // Add the joints in the order they are recieved from Omniverse
     public ArticulationBody[] JointArticulationBodies;
+    public float[] myAngles;
 
-    // Hardcoded variables
     private int NumRobotJoints;
 
     [SerializeField]
     GameObject myArm;
 
-    public string[] data;
+    private string[] data;
 
     void Start()
     {
         Debug.Log("Initializing");
         NumRobotJoints = JointArticulationBodies.Length;
+        myAngles = new float[NumRobotJoints];
     }
 
     void Update()
@@ -56,7 +57,7 @@ public class ArmControllerOmniverseZMQ : MonoBehaviour
         if(convertFromRadians)
         {
             angle = cmd * Mathf.Rad2Deg;
-            data[joint] = angle.ToString();
+            //data[joint] = angle.ToString(); //Debugging 
         }
         else
         {   
@@ -66,6 +67,8 @@ public class ArmControllerOmniverseZMQ : MonoBehaviour
         var jointXDrive = JointArticulationBodies[joint].xDrive;
         jointXDrive.target = angle;
         JointArticulationBodies[joint].xDrive = jointXDrive;
+
+        //myAngles[joint] = angle;
     }
 
     public void UpdateJoints(string message)
