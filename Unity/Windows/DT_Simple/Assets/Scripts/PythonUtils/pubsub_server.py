@@ -6,7 +6,7 @@ import zmq
 
 context = zmq.Context()
 socket = context.socket(zmq.PUB)
-socket.bind("tcp://*:12344")
+socket.bind("tcp://*:12325")
 time_interval = 1.0
 
 limit = 100

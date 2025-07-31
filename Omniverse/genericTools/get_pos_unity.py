@@ -85,20 +85,20 @@ class TargetControl(BehaviorScript):
 
             x = float(xform_data[0]) * -1.0
             y = float(xform_data[1])
-            z = float(xform_data[2]) 
+            z = float(xform_data[2]) * -1.0
 
-            rx = float(xform_data[3]) #+ 180
+            rx = float(xform_data[3]) * -1.0#+ 180
             ry = float(xform_data[4]) * -1.0
-            rz = float(xform_data[5]) * -1.0
+            rz = float(xform_data[5])  -1.0
 
             #y = y + self.grip_offset[2]
 
-            physicsUtils.set_or_add_translate_op(self.curr_prim, (z,x,y))
+            physicsUtils.set_or_add_translate_op(self.curr_prim, (x,z,y))
 
             # Update transform using UsdGeom.XformCommonAPI
             xformable = UsdGeom.XformCommonAPI(self.curr_prim)
             rot_att = self.curr_prim.GetAttribute("xformOp:rotateXYZ")
-            rot_att.Set(Gf.Vec3f(rz,rx,ry))
+            rot_att.Set(Gf.Vec3f(rx,rz,ry))
 
             # Print statements to confirm data
             #print(f"Updated Position: {(z, x, y)}")

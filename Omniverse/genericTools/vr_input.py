@@ -44,10 +44,11 @@ logger = logging.getLogger(__name__)
 #   * ee_name, string
 #   * IKport, int
 #   * joint_port, int
+#   * mat_name, string
 #
 # 2. Fill the newly added attributes with the correct information
 #
-# 3. Create the "Target" as a child of the robot prim
+# 3. Create the "Target" as a child of the robot parent prim
 #   * If you will be controlling the Target through Omniverse VR, "Target" should be a Cube prim
 #   * Otherwise, "Target" should be an empty prim with a Cube as the child.
 #
