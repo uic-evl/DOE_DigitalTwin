@@ -1,4 +1,4 @@
-# Dual arm hotcell simulation (isaac lab)
+# Dual Arm Hotcell Simulation (Isaac Lab)
 This project sets up a dual-arm robot simulation using NVIDIA isaac lab. it includes a custom environment (`hotcell_env.py`) and an inverse kinematics controller (`rule_based_controller.py`) to move two arms in parallel across multiple environments.
 ## Files
 - **hotcell_env.py**
