@@ -74,7 +74,7 @@ class RobotControl(BehaviorScript):
 
         # Ignore gripper joints (for now)
         #logger.warn(self.robot.dof_names)
-        #joints = joints[:7]
+        joints = joints[:6]
         
         # Convert joint positions to strings and then to a single string
         joints_str = str([str(j) for j in joints])
