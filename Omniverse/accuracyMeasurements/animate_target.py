@@ -59,7 +59,7 @@ class TargetControl(BehaviorScript):
         # Fixed Update Loop Utils
         self.time_stamp = 0.0
         self.time_step = 0
-        self.time_delay = 3 
+        self.time_delay = 2 
 
         # Get path points from file
         with open("C:/Users/halle/Documents/DigitalTwin/Performance/accuracy/Output/output.txt") as f:
@@ -97,10 +97,13 @@ class TargetControl(BehaviorScript):
         z = trans[2] + 0.0005
         '''
 
+        printLine = str(self.time_step) + "/" + str(len(self.lines))
+        logger.warn(printLine)
+
         # Every tenth of a second, move to the next point
-        if self.waiting is False and self.time_step <= len(self.lines):
+        if self.waiting is False and self.time_step < len(self.lines):
             # Write distance measurement BEFORE new command is sent
-            data = self.lines[self.time_step] + ";" + str(self.public_distance.Get()) + "\n"
+            data = self.lines[self.time_step] + "," + str(self.public_distance.Get()) + "\n"
             self.filestream.writelines(data) 
 
 

@@ -1,60 +1,106 @@
-# Hardcode study area xform form OVIS
-origin = [0.0, 0.22204, 0.094777078524736]
-scale = [0.1, 0.1, 0.05]
+import logging
+import math
+from pprint import pprint
+import time
+import typing
+import omni.usd
+from pxr import Usd, Gf, UsdGeom
+import numpy as np
+import omni
+import omni.kit.pipapi
+import omni.physx.scripts.utils as pxutils
+from omni.physx.scripts import physicsUtils
+from omni.isaac.dynamic_control import _dynamic_control
+from omni.isaac.core.articulations.articulation import Articulation
+from omni.isaac.core.utils.types import ArticulationAction
+from omni.kit.scripting import BehaviorScript
+from pxr import (Gf, PhysxSchema, Sdf, Tf, Usd, UsdGeom, UsdLux, UsdPhysics,
+                 UsdShade, UsdUtils)
+import zmq
 
-#Translate the origin from cube center to corner
-sx = origin[0] + (scale[0] / 2) 
-sy = origin[1] + (scale[1] / 2) 
-sz = origin[2] + (scale[2] / 2)
+# This script should be placed on the IK Target in the OVIS Scene.
+# It will animate the Target through a defined volume
 
-step_size = 0.025 # give in METERS
+logger = logging.getLogger(__name__)
+commands = []
 
-x_max = scale[0] / step_size
-y_max = scale[1] / step_size
-z_max = scale[2] / step_size
+class TargetControl(BehaviorScript):
+    def on_init(self):
+        logger.info(f"{__class__.__name__}.on_init()->{self.prim_path}")
+        dc = _dynamic_control.acquire_dynamic_control_interface()
+        
+        # Testing initial pos extraction
+        stage = omni.usd.get_context().get_stage()
+        self.curr_prim = stage.GetPrimAtPath(self.prim_path)
+        pose = omni.usd.get_world_transform_matrix(self.curr_prim)
+        trans = pose.ExtractTranslation()
+        #logger.warn(trans)
 
-# Open file stream
-filestream = open("C:/Users/halle/Documents/DigitalTwin/Performance/accuracy/Output/output.txt", "w", encoding="utf-8")
+        # Set starting point 
+        self.study_area = stage.GetPrimAtPath("/World/StudyArea")
+        pose = omni.usd.get_world_transform_matrix(self.study_area)
+        trans = pose.ExtractTranslation()
 
-# Create and fill path points
-path = []
-reverse_x = False
+        #Translate the origin from cube center to corner
+        self.sx = trans[0] + 0.05 
+        self.sy = trans[1] + 0.05 
+        self.sz = trans[2] + 0.025
 
-# Starting from the top corner
-print("Starting Loop")
+        #self.starting_point = Gf.Vec3f(sx,sy,sz)
 
-# Up-down loop from top to bottom
-for z_ind in range (0,int(z_max)):
-    #print("z:" + str(z_ind))
-    # Back-Forth loop
-    for y_ind in range(0,int(y_max)):
-        #print("y:" + str(y_ind))
-        min = 0
-        max = 100
-        step = 1
-        if reverse_x is False:
-            min = 0
-            max = int(x_max)
-            step = 1
-        else:
-            min = int(x_max)
-            max = 0
-            step = -1
-        # Left-Right loop
-        for x_ind in range(min, max, step):
-            #print("x:" + str(x_ind))
+        self.step_size = 0.0005
 
-            z = sz - (step_size * z_ind)
-            y = sy - (step_size * y_ind)
-            x = sx - (step_size * x_ind)
-            
-            #print(str(x_ind) + ": " + str(x))
+        self.x_max = self.sx + 0.1
+        self.y_max = self.sy + 0.1
+        self.z_max = self.sz + 0.05
 
-            path.append((x,y,z))
+        # Open file stream
+        #self.filestream = open("C:/Users/halle/Documents/DigitalTwin/Performance/accuracy/Output/output.txt", "w", encoding="utf-8")
 
-            data = str((x,y,z)) + "\n"
-            filestream.writelines(data) 
+        # Create and fill path points
+        self.path = []
+        
+        # Starting from the top corner
+        # Up-down loop from top to bottom
+        reverse_x = False
+        for z_ind in range (0,11):
+            logger.warn(z_ind)
+            # Back-Forth loop
+            for y_ind in range(0,21):
+                logger.warn(y_ind)
+                min = 0
+                max = 100
+                if reverse_x is False:
+                    min = 0
+                    max = 21
+                else:
+                    min = 21
+                    max = 0
+                # Left-Right loop
+                for x_ind in range(min, max):
 
-        reverse_x = not reverse_x
+                    z = self.sz - (self.step_size * z_ind)
+                    y = self.sy - (self.step_size * y_ind)
+                    x = self.sx - (self.step_size * x_ind)
+                    
+                    logger.warn(x_ind)
+                    self.path.append((x,y,z))
+                    reverse_x = not reverse_x
 
-print("Done. Saved " + str(len(path)) + " points")
+         
+    def on_destroy(self):
+        logger.info(f"{__class__.__name__}.on_destroy()->{self.prim_path}")
+
+
+    def on_play(self):
+        pass
+                    
+
+    def on_stop(self):
+        logger.info(f"{__class__.__name__}.on_stop()->{self.prim_path}")
+        self.had_first_update = False
+
+
+    def on_update(self, current_time: float, delta_time: float):
+        pass
+

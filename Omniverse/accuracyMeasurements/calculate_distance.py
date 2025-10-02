@@ -79,7 +79,7 @@ class TargetControl(BehaviorScript):
         #print2 = "OVIS-Unity Distance: " + str(dist2 * 100)
         #print_final = print1 + " | " + print2
 
-        logger.warn(print1)
+        #logger.warn(print1)
         
 
         
