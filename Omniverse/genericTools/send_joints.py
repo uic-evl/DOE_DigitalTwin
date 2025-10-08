@@ -39,6 +39,9 @@ class RobotControl(BehaviorScript):
 
         self.had_first_update = False
 
+        # Make cmd message public 
+        self.cmd_message = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("cmd_message")
+
     def on_destroy(self):
         logger.info(f"{__class__.__name__}.on_destroy()->{self.prim_path}")
 
@@ -78,6 +81,8 @@ class RobotControl(BehaviorScript):
         
         # Convert joint positions to strings and then to a single string
         joints_str = str([str(j) for j in joints])
+
+        self.cmd_message.Set(joints_str)
 
         # Send joint positions as a single string
         try:

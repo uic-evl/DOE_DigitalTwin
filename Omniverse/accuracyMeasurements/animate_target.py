@@ -40,6 +40,10 @@ class TargetControl(BehaviorScript):
         # TO DO: Don't hardcode this
         self.public_distance = self.stage.GetPrimAtPath("/World/firefighter").GetAttribute("public_distance")
 
+        # Get ik attribute
+        # TO DO: Don't hardcode this
+        self.ik_status = self.stage.GetPrimAtPath("/World/firefighter").GetAttribute("ik_status")
+
         # Set starting point 
         self.study_area = stage.GetPrimAtPath("/World/StudyArea")
         pose = omni.usd.get_world_transform_matrix(self.study_area)
@@ -59,7 +63,7 @@ class TargetControl(BehaviorScript):
         # Fixed Update Loop Utils
         self.time_stamp = 0.0
         self.time_step = 0
-        self.time_delay = 2 
+        self.time_delay = 0.5 # Large delay to account for errors
 
         # Get path points from file
         with open("C:/Users/halle/Documents/DigitalTwin/Performance/accuracy/Output/output.txt") as f:
@@ -97,15 +101,14 @@ class TargetControl(BehaviorScript):
         z = trans[2] + 0.0005
         '''
 
-        printLine = str(self.time_step) + "/" + str(len(self.lines))
-        logger.warn(printLine)
+        printLine = str(self.time_step + 1) + "/" + str(len(self.lines))
+        #logger.warn(printLine)
 
         # Every tenth of a second, move to the next point
-        if self.waiting is False and self.time_step < len(self.lines):
+        if self.waiting is False and self.time_step < len(self.lines) - 1:
             # Write distance measurement BEFORE new command is sent
-            data = self.lines[self.time_step] + "," + str(self.public_distance.Get()) + "\n"
+            data = self.lines[self.time_step] + "," + str(self.public_distance.Get()) + "," + str(self.ik_status.Get())+ "\n"
             self.filestream.writelines(data) 
-
 
             self.waiting = True
             self.time_stamp = current_time
@@ -124,11 +127,10 @@ class TargetControl(BehaviorScript):
             z = float(point[2])
 
             physicsUtils.set_or_add_translate_op(self.curr_prim, (x,y,z))
-
+        
+        if(self.time_step >= len(self.lines)):
+            logger.warn("Animation complete")
         
         if current_time > (self.time_stamp + self.time_delay):
             self.waiting = False 
-
-        # Apply translation to Target
-        #physicsUtils.set_or_add_translate_op(self.curr_prim, (x,y,z))
 

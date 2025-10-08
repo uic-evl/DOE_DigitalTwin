@@ -81,6 +81,9 @@ class RobotControl(BehaviorScript):
         self.sock = self.context.socket(zmq.PUB)
         self.sock.bind(f"tcp://*:{self.IKport}")
 
+        # Attribute for storing IK Status
+        self.ik_status = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("ik_status")
+
         # Get end effector name from asset
         self.ee_name = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("ee_name").Get()
         self.ee_prim = self.stage.GetPrimAtPath(str(self.prim_path) + '/' + self.ee_name)
@@ -165,6 +168,7 @@ class RobotControl(BehaviorScript):
             if success:
                 self.robot.apply_action(action)
                 self.target_mat.Set(self.ik_good.Get())
+                self.ik_status.Set(0)
                 try:
                     self.sock.send_string("0")
                 except zmq.ZMQError as exc:
@@ -174,6 +178,7 @@ class RobotControl(BehaviorScript):
                 #logger.warn(f'{self.prim_path} - IK failed')
                 #self.robot.apply_action(action)
                 self.target_mat.Set(self.ik_bad.Get())
+                self.ik_status.Set(1)
                 try:
                     self.sock.send_string("1")
                 except zmq.ZMQError as exc:
