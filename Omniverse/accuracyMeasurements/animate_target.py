@@ -63,11 +63,15 @@ class TargetControl(BehaviorScript):
         # Fixed Update Loop Utils
         self.time_stamp = 0.0
         self.time_step = 0
-        self.time_delay = 0.5 # Large delay to account for errors
+        self.time_delay = 4 # Large delay to account for errors
+        self.waiting = False
 
         # Get path points from file
         with open("C:/Users/halle/Documents/DigitalTwin/Performance/accuracy/Output/output.txt") as f:
             self.lines = f.read().splitlines()
+
+        # Reverse path testing
+        self.lines.reverse()
 
     def on_destroy(self):
         logger.info(f"{__class__.__name__}.on_destroy()->{self.prim_path}")
@@ -102,7 +106,7 @@ class TargetControl(BehaviorScript):
         '''
 
         printLine = str(self.time_step + 1) + "/" + str(len(self.lines))
-        #logger.warn(printLine)
+        logger.warn(printLine)
 
         # Every tenth of a second, move to the next point
         if self.waiting is False and self.time_step < len(self.lines) - 1:
