@@ -1,0 +1,2 @@
+C:\Users\halle\Documents\Summer25\Unity\DT_Core\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\halle\Documents\Summer25\Unity\DT_Core\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
