@@ -84,6 +84,9 @@ class RobotControl(BehaviorScript):
         # Attribute for storing IK Status
         self.ik_status = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("ik_status")
 
+        # Attribute for trigger action
+        self.action_trigger = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("action_trigger")
+
         # Get end effector name from asset
         self.ee_name = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("ee_name").Get()
         self.ee_prim = self.stage.GetPrimAtPath(str(self.prim_path) + '/' + self.ee_name)
@@ -106,8 +109,6 @@ class RobotControl(BehaviorScript):
         self.target_mat = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name) + "/Shader").GetAttribute("inputs:diffuse_color_constant")
         self.ik_good = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name)).GetAttribute("ik_good")
         self.ik_bad = self.stage.GetPrimAtPath("/World/Looks/" + str(self.mat_name)).GetAttribute("ik_bad")
-
-        self.target_name = self.stage.GetPrimAtPath(self.prim_path).GetAttribute("target_name").Get()
 
         if MOTION_GEN_ALGO == 'IK':
             self.motion_gen_algo = LulaKinematicsSolver(
@@ -146,7 +147,7 @@ class RobotControl(BehaviorScript):
         # Do any initialization that couldn't be done in on_play()
         if not self.had_first_update:
             self.on_first_update(current_time, delta_time)
-        follow_target = self.stage.GetPrimAtPath(str(self.prim_path.GetParentPath()) + '/' + self.target_name)
+        follow_target = self.stage.GetPrimAtPath(str(self.prim_path.GetParentPath()) + '/Target')
 
         rot = get_world_rotation(follow_target)
         direction = rot.TransformDir(Gf.Vec3d(0, 0, 1))
@@ -162,29 +163,33 @@ class RobotControl(BehaviorScript):
         robot_pose = self.robot.get_world_pose() 
         self.motion_gen_algo.set_robot_base_pose(robot_pose[0], robot_pose[1])
 
-        if MOTION_GEN_ALGO == 'IK':
-            action, success = self.motion_gen_solver.compute_inverse_kinematics(
-                target_position=target[0],
-                target_orientation=target[1],
-            )
-            if success:
-                self.robot.apply_action(action)
-                self.target_mat.Set(self.ik_good.Get())
-                self.ik_status.Set(0)
-                try:
-                    self.sock.send_string("0")
-                except zmq.ZMQError as exc:
-                    logger.warn(exc)
+        # Only solve IK and apply action if there is a new action to apply
+        if self.action_trigger.Get():
+            if MOTION_GEN_ALGO == 'IK':
+                action, success = self.motion_gen_solver.compute_inverse_kinematics(
+                    target_position=target[0],
+                    target_orientation=target[1],
+                )
+                if success:
+                    self.robot.apply_action(action)
+                    self.target_mat.Set(self.ik_good.Get())
+                    self.ik_status.Set(0)
+                    try:
+                        self.sock.send_string("0")
+                    except zmq.ZMQError as exc:
+                        logger.warn(exc)
 
-            else:
-                #logger.warn(f'{self.prim_path} - IK failed')
-                #self.robot.apply_action(action)
-                self.target_mat.Set(self.ik_bad.Get())
-                self.ik_status.Set(1)
-                try:
-                    self.sock.send_string("1")
-                except zmq.ZMQError as exc:
-                    logger.warn(exc)
+                else:
+                    #logger.warn(f'{self.prim_path} - IK failed')
+                    #self.robot.apply_action(action)
+                    self.target_mat.Set(self.ik_bad.Get())
+                    self.ik_status.Set(1)
+                    try:
+                        self.sock.send_string("1")
+                    except zmq.ZMQError as exc:
+                        logger.warn(exc)
+            
+            self.action_trigger.Set(False)
 
 
 def get_world_pose(prim: Usd.Prim) -> Tuple[np.ndarray, np.ndarray]:
