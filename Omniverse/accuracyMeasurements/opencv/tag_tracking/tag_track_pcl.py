@@ -27,6 +27,9 @@ EE_TAG_ID = 24
 t_cam_in_world = [0,0,0]
 R_cam_in_world = [0,0,0]
 
+t_cam_in_world_pcl = [0,0,0]
+R_cam_in_world_pcl = [0,0,0]
+
 # generic holder for the four tag corners from pcl
 pcl_corners = [0,0,0,0]
 pcl_center = []
@@ -74,14 +77,28 @@ if(pipeline != -1):
                 if pclData.isSparse() == False:
                     width = pclData.getWidth()
                     height = pclData.getHeight()
+                    points = pclData.getPoints() 
 
                     # Convert pixel to linear index
                     ind = (center_y * width) + center_x; 
 
                     # Get PCL point
+                    '''
                     points = pclData.getPoints()  
                     point = points[int(ind)]
                     pcl_center = point / 1000 # mm to meters
+                    '''
+
+                    # Get average from possible center pixels
+                    window = 1
+                    window_points = []
+                    for i in range (-window, window):
+                        for j in range (-window, window):
+                            ind = ((center_y + j) * width) + (center_x + i); 
+                            point = points[int(ind)]
+                            window_points.append(point / 1000) # mm to meters
+                    
+                    pcl_center = np.max(window_points, axis=0)
                     
 
                 # PnP 3D point calc
@@ -95,49 +112,61 @@ if(pipeline != -1):
 
                 if success:
                     # Draw 3D axis
-                    #draw_detection(frame, rgb_cam_matrix, rgb_dist_coeffs, rvec, tvec, MARKER_SIZE_METERS, marker_id, img_pts)
-        
-                    # DEBUG
-                    reproj, _ = cv2.projectPoints(
-                        tag_corner_points,
-                        rvec,
-                        tvec,
-                        rgb_cam_matrix,
-                        rgb_dist_coeffs
-                    )
-
-                    for p in reproj:
-                        cv2.circle(frame, tuple(p.ravel().astype(int)), 4, (255,0,0), -1)
-                    ### end
+                    draw_detection(frame, rgb_cam_matrix, rgb_dist_coeffs, rvec, tvec, MARKER_SIZE_METERS, marker_id, img_pts)
 
                     marker_id = int(marker_id)
                     R_xform = rvec
                     t_xform = tvec
 
+                    R_xform_pcl = rvec
+                    t_xform_pcl = pcl_center
+
                     # get world pos using filtered points
                     if(marker_id == ORIGIN_TAG_ID):
+                        # PNP
                         t_cam_in_world, R_cam_in_world = find_world_origin(rvec, tvec)
 
                         # Redundant for error checking of camera->world transform on ee tag
                         t_xform = t_cam_in_world
                         R_xform = R_cam_in_world
                         
+                        #PCL
+                        t_cam_in_world_pcl, R_cam_in_world_pcl = find_world_origin(rvec, pcl_center)
+
+                        t_xform_pcl = t_cam_in_world_pcl
+                        R_xform_pcl = R_cam_in_world_pcl
+
+                        #print("PNP:", tvec.flatten(), t_xform)
+                        #print("PCL:", pcl_center, t_xform_pcl)
+                        
 
                     elif(marker_id == EE_TAG_ID):
+                        #PNP
                         t_ee_in_world, R_ee_in_world = find_tag_in_world(rvec, tvec, R_cam_in_world, t_cam_in_world)
 
                         t_xform = t_ee_in_world
                         R_xform = R_ee_in_world
 
-                    # DEBUG
-                    # compare PCL, Depth, and PNP z values
-                    #if(marker_id == 87):
-                    #    print(pcl_center[2] / 1000, depth_frame[center_y, center_x] / 1000, tvec[2])
+                        #PCL
+                        t_ee_in_world_pcl, R_ee_in_world_pcl = find_tag_in_world(rvec, pcl_center, R_cam_in_world_pcl, t_cam_in_world_pcl)
 
-                    print(f'Tag_{marker_id}:{pcl_center};{tvec.flatten()}')
+                        t_xform_pcl = t_ee_in_world_pcl
+                        R_xform_pcl = R_ee_in_world_pcl
+
+                    # DEBUG
+                    #if(marker_id == 24):
+                    #    print(pcl_center[2] / 1000, depth_frame[center_y, center_x] / 1000, tvec[2])
+                    #    print(f'Tag_{marker_id}:{t_xform_pcl};{t_xform}')
+
+
+                    #print(f'Tag_{marker_id}:{pcl_center};{tvec.flatten()}')
 
                     # send msg 
-                    #zmq_send_msg(context, socket, marker_id, t_xform, cv_to_OVIS(R_xform))
+                    try:
+                        zmq_send_msg(context, socket, marker_id, t_xform, cv_to_OVIS(R_xform))
+                        zmq_send_msg(context, socket, marker_id + 1, t_xform_pcl, cv_to_OVIS(R_xform_pcl))
+                    except:
+                        pass
 
 
 

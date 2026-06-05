@@ -118,7 +118,10 @@ def find_tag_in_world(rvec, tvec, R_cam_in_world, t_cam_in_world):
     return t_endpoint_in_world, R_endpoint_in_world
 
 def cv_to_OVIS(rvec):
-    R_isaac = cv_to_isaac @ rvec @ cv_to_isaac.T
+    try:
+        R_isaac = cv_to_isaac @ rvec @ cv_to_isaac.T
+    except: 
+        R_isaac = rvec
 
     qw, qx, qy, qz = rotation_matrix_to_quaternion(R_isaac) 
 
