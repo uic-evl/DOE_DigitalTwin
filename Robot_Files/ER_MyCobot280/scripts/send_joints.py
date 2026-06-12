@@ -41,14 +41,14 @@ def main():
 
             message = mc.get_angles()
 
-            #print(str(message))
 
             if message is None:
                 continue
             else:
                 message = degrees_to_radians(message)
                 socket.send_string(str(message))
-            
+                print(str(message))
+
         except KeyboardInterrupt:
             # Handle the script being stopped by the user
             break
@@ -60,6 +60,8 @@ def main():
                 print(e)
                 continue
         except serial.serialutil.SerialException:
+            continue
+        except:
             continue
 
     # Clean up the socket and context

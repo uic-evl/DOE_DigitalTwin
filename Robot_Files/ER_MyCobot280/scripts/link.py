@@ -50,7 +50,7 @@ def main():
     sendAngles = True
     waitEndTime = datetime.datetime.now()
     currentTime = datetime.datetime.now()
-    timeDelay = 0.25
+    timeDelay = 0.2
 
     while True:
         try:
@@ -70,6 +70,7 @@ def main():
             message = message.replace("[", "")
             message = message.replace("]", "")
             message_arr = message.split(",")
+            message_arr = message_arr[:-1]
 
             # Extract and convert the relevant parts of the message (joint angles in radians)
             #joint_angles_radians = [float(angle) for angle in message[1:]]  # Ignore the first element
