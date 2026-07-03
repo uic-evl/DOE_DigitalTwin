@@ -68,7 +68,7 @@ public class ArmControllerOmniverseZMQ : MonoBehaviour
         jointXDrive.target = angle;
         JointArticulationBodies[joint].xDrive = jointXDrive;
 
-        //myAngles[joint] = angle;
+        myAngles[joint] = angle;
     }
 
     public void UpdateJoints(string message)
